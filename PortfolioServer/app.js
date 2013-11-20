@@ -1,15 +1,17 @@
 var express = require('express');
 var emitter = require('events').EventEmitter;
-var form    = require('connect-form');
 var fs      = require('fs');
 
 var app    = express();
 var events = new emitter();
 
-var statPath = __dirname + '/public/static';
+var statPath  = __dirname + '/public/static';
+var photoPath = __dirname + '/public/photos';
+
+app.use(express.bodyParser());
 app.configure(function(){
 	app.use(express.static(statPath));
-	app.use(express.static(__dirname + '/public/photos'));
+	app.use(express.static(photoPath));
 });
 
 // main entry point for site
@@ -18,28 +20,23 @@ app.get('/', function(req, res){
 });
 
 app.post('/', function(req, res, next){
+	// the uploaded file can be found as `req.files.image` and the
+	// title field as `req.body.title`
+ 	console.log('caught post');
 
-	// connect-form adds the req.form object
-	// we can (optionally) define onComplete, passing
-	// the exception (if any) fields parsed, and files parsed
-	req.form.complete(function(err, fields, files){
-		if (err) {
-			next(err);
-		} else {
-			console.log('\nuploaded %s to %s',
-				files.image.filename,
-				files.image.path
-			);
-		res.redirect('back');
+	// copy the photo to save it
+	var images = req.files;
+	console.log(images);
+	for(var k in images){
+		var image = images[k];
+		var names = image.path.split('/');
+		var name = names[names.length - 1];
+		if(name){
+			fs.createReadStream(image.path)
+			.pipe(fs.createWriteStream(photoPath +'/'+ name));
 		}
-	});
-
-	// We can add listeners for several form
-	// events such as "progress"
-	req.form.on('progress', function(bytesReceived, bytesExpected){
-		var percent = (bytesReceived / bytesExpected * 100) | 0;
-		process.stdout.write('Uploading: %' + percent + '\r');
-	});
+	}
+	events.emit('servePage', res);
 });
 
 // serve up the content

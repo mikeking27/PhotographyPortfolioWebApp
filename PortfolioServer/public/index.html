@@ -3,7 +3,13 @@
 	<body>
 		{{photos}}
 		<form method="post" enctype="multipart/form-data">
-			<input type="file" name="image"/>
+			<input type="file" name="image"/><br/>
+			<label>Description</label><br/>
+			<input type="text" name="description"/><br/>
+			<label>Width</label><br/>
+			<input type="text" name="width"/><br/>
+			<label>Height</label><br/>
+			<input type="text" name="height"/><br/>
 			<input type="submit"/>		
 		</form>
 	</body>
