@@ -6,8 +6,25 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="static/css/normalize.css">
+        <link rel="stylesheet" href="static/css/main.css">
+        <link rel="stylesheet" href="static/css/packery-docs.css">
+
+        <script src="bower_components/classie/classie.js"></script>
+        <script src="bower_components/eventie/eventie.js"></script>
+        <script src="bower_components/doc-ready/doc-ready.js"></script>
+        <script src="bower_components/eventEmitter/EventEmitter.js"></script>
+        <script src="bower_components/get-style-property/get-style-property.js"></script>
+        <script src="bower_components/jquery-bridget/jquery.bridget.js"></script>
+        <script src="bower_components/matches-selector/matches-selector.js"></script>
+        <script src="bower_components/get-size/get-size.js"></script>
+        <script src="bower_components/outlayer/item.js"></script>
+        <script src="bower_components/outlayer/outlayer.js"></script>
+        <script src="bower_components/packery/js/rect.js"></script>
+        <script src="bower_components/packery/js/item.js"></script>
+        <script src="bower_components/packery/js/packer.js"></script>
+        <script src="bower_components/packery/js/packery.js"></script>
+        
 	</head>
 	<body>
 		{{photos}}
@@ -29,7 +46,7 @@
             <a href="#">about</a>
         </nav>
         <header>M Dawson Photography</header>
-        <section id="container" class="js-packery" data-packery-options='{ "itemSelector": ".item", "gutter": 10 }'>
+        <div id="container" class="packery" data-packery-options='{ "itemSelector": ".item", "gutter": 10 }'>
             <div class="item h2">Hello</div>
             <div class="item w2">Bingo</div>
             <div class="item h2 w2">World</div>
@@ -40,7 +57,7 @@
             <div class="item h2 w2">Sienna</div>
             <div class="item">Madison</div>
             <div class="item w2">Erin</div>
-        </section>
+        </div>
         <footer>
             <div class="copyright">Copyright &copy;2013</div>
             <div class="socialLinks">
@@ -52,12 +69,13 @@
 
         <script>
             var container = document.querySelector('#container');
-            var pckry = new Packery(container, {
+            var myPackery = new Packery(container, {
                 // options
                 itemSelector: '.item',
-                gutter: 10
+                gutter: 10,
+                "columnWidth": 250,
+                "rowHeight": 250
             });
         </script>
-        <script src="js/packery-docs.js"></script>
 	</body>
 </html>
