@@ -26,6 +26,8 @@
 }
 #site-nav a {
   background: none;
+  font-size: 2em;
+  margin-right: 2em;
 }
 #site-nav .primary-content {
   padding: 0;

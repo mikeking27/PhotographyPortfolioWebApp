@@ -101,14 +101,9 @@ div.param {
   -webkit-filter: grayscale(100%);
   /* Chrome 19+, Safari 6+, Safari 6+ iOS */
 
-  /*&.wide {
-        height: 260px;
-    }
-
-    &.high {
-        width: 260px;
-    }*/
-
+}
+.item.wide {
+  height: 198px;
 }
 .item.gigante {
   background: #fa9a5a;
@@ -117,7 +112,6 @@ div.param {
   /* keep it above other items */
 
   width: 49.5%;
-  height: auto;
   padding: 5px;
   overflow: auto;
   filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 1 0\'/></filter></svg>#grayscale");

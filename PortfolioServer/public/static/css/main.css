@@ -171,13 +171,13 @@ h5,
 /* ---- links ---- */
 a,
 a code {
-  color: #157ba3;
+  color: #bfbfbf;
   text-decoration: none;
   background: rgba(242, 127, 13, 0.03);
 }
 a:hover,
 a:hover code {
-  color: #0c485f;
+  color: #333333;
 }
 /* ---- headers ---- */
 h1,
@@ -389,14 +389,9 @@ div.param {
   -webkit-filter: grayscale(100%);
   /* Chrome 19+, Safari 6+, Safari 6+ iOS */
 
-  /*&.wide {
-        height: 260px;
-    }
-
-    &.high {
-        width: 260px;
-    }*/
-
+}
+.item.wide {
+  height: 198px;
 }
 .item.gigante {
   background: #fa9a5a;
@@ -405,7 +400,6 @@ div.param {
   /* keep it above other items */
 
   width: 49.5%;
-  height: auto;
   padding: 5px;
   overflow: auto;
   filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 1 0\'/></filter></svg>#grayscale");
@@ -1190,83 +1184,67 @@ you can use the generic selector below, but it's slower:
   }
 }
 /* ---- site nav ---- */
-#site-nav,
-#site-nav h1 {
-  line-height: 44px;
-}
-/* clear fix */
-#site-nav:after {
-  content: ' ';
+nav:before,
+nav:after {
+  content: " ";
+  /* 1 */
+
   display: table;
+  /* 2 */
+
+}
+nav:after {
   clear: both;
 }
-#site-nav h1 {
-  float: left;
-  text-align: center;
-  font-size: 1.5em;
-  background: #C90;
-  margin: 0;
+nav > a,
+nav ol li > a {
+  margin: 0 20px;
 }
-#site-nav h1 a {
-  padding: 0 0.8em;
-  display: block;
-  color: white;
+nav ol {
+  margin-top: 0;
 }
-#site-nav h1 a:hover {
-  background: #90C;
-}
-#site-nav a {
-  background: none;
-}
-#site-nav .primary-content {
+nav ol {
   padding: 0;
-}
-#site-nav ol {
   list-style: none;
-  font-size: 15px;
-  margin-bottom: 0;
 }
-#site-nav ol:after {
-  content: ' ';
-  display: table;
-  clear: both;
+nav ol li:nth-child(2) {
+  display: none;
 }
-#site-nav li {
-  float: left;
+nav a {
+  background: none;
+  font-size: 1.4em;
+  margin-right: 2em;
+  color: #bfbfbf;
 }
-#site-nav ol a {
-  color: white;
-  display: block;
-  padding: 0 1.0em;
-}
-#site-nav ol a:hover {
-  background: #C90;
+nav a:hover {
+  text-decoration: underline;
+  color: #333333;
 }
 /* selected */
-.options-page #site-nav .nav-options a,
-.methods-page #site-nav .nav-methods a,
-.events-page #site-nav .nav-events a,
-.draggable-page #site-nav .nav-draggable a,
-.license-page #site-nav .nav-license a,
-.appendix-page #site-nav .nav-appendix a,
-.faq-page #site-nav .nav-faq a {
+.options-page nav .nav-options a,
+.methods-page nav .nav-methods a,
+.events-page nav .nav-events a,
+.draggable-page nav .nav-draggable a,
+.license-page nav .nav-license a,
+.appendix-page nav .nav-appendix a,
+.faq-page nav .nav-faq a {
   background: #90C;
 }
 @media screen and (min-width: 960px) {
   /* hide text on index */
-  .index-page #site-nav h1 a {
+  .index-page nav h1 a {
     display: none;
   }
-  #site-nav,
-  #site-nav h1 {
+  nav,
+  nav h1 {
     line-height: 60px;
   }
-  #site-nav h1 {
+  nav h1 {
     width: 200px;
     height: 60px;
     font-size: 2.0em;
   }
-  #site-nav ol {
+  nav ol {
     font-size: 17px;
   }
 }
