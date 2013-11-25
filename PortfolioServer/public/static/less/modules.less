@@ -1,3 +1,5 @@
+@import-once "mixins.less";
+
 .tagline {
   font-size: 1.5em;
   line-height: 1.35;
@@ -104,38 +106,38 @@ div.param {
 
 #container {
     background: #33d5c7;
-    border: 4px solid #333;
-    border-color: hsla(0, 0%, 0%, 0.3);
-     
+    /*border: 4px solid #333;
+    border-color: hsla(0, 0%, 0%, 0.3);*/
+    padding: 5px;
 }
 
 .item {
-    position: relative;
-    width: 25%;
-    height: 278px;
     float: left;
-    background: #33d5c7;
-    border: 4px solid #333;
-    border-color: hsla(0, 0%, 0%, 0.3);
+    padding: 5px;
+    clip: rect(0, 250px, 250px, 0);
+    width: 260px;
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 10+, Firefox on Android */
+    filter: gray; /* IE6-9 */
+    -webkit-filter: grayscale(100%); /* Chrome 19+, Safari 6+, Safari 6+ iOS */
 
-    & img {
-        position: absolute;
-        clip: rect(0, 250px, 250px, 0);
-        width: 250px;
+    /*&.wide {
+        height: 260px;
     }
-}
 
-.item.gigante {
-    width: 100%;
-    height: 750px;
-    background: #C90;
-    z-index: 10; /* keep it above other items */
-    
-    & img {
-        height: 100%;
-        width: 100%;
+    &.high {
+        width: 260px;
+    }*/
+
+    &.gigante {
+        background: #fa9a5a;
         clip: auto;
-        #h1.transition(all, 0.9s, ease-in-out,0);
+        z-index: 10; /* keep it above other items */
+        width: 49.5%;
+        height: auto;
+        padding: 5px;
+        overflow: auto;
+        filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 1 0\'/></filter></svg>#grayscale");
+        -webkit-filter: grayscale(0%);
     }
 }
 

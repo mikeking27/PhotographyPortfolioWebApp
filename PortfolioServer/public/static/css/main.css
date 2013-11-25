@@ -8,513 +8,6 @@
 /* ==========================================================================
    Import Variables, helper and base styles
    ========================================================================== */
-/* --------------------------------------------------------------------------------------
-*  HelpLess is released under the MIT license.
-* 
-*  Copyright (C) 2011 by Matt Woodfield
-* 
-*  Permission is hereby granted, free of charge, to any person obtaining a copy of this 
-*  software and associated documentation files (the "Software"), to deal in the Software
-*  without restriction, including without limitation the rights to use, copy, modify, 
-*  merge, publish, distribute, sublicense, and/or sell copies of the Software, and to 
-*  permit persons to whom the Software is furnished to do so, subject to the 
-*  following conditions:
-* 
-*  The above copyright notice and this permission notice shall be included in all copies 
-*  or substantial portions of the Software.
-* 
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
-*  INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A 
-*  PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT 
-*  HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF 
-*  CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE 
-*  OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-*  --------------------------------------------------------------------------------------
-*
-*  HelpLess - A lot of Less help
-*  --------------------------------------------------------------------------------------  
-*
-*  @What is it:
-*  HelpLess is a Helper Library for the brilliant LESS dynamic stylesheet language.
-*  Read more about LESS: http://lesscss.org/
-*  
-*  I have tried to make HelpLess as all-encompasing as possible with support for dynamic
-*  grids and page starter themes as well as all the css3 features I could think of.
-*  Unlike other libraries, HelpLess has an invisible footprint until you call a mixin 
-*  so if you import HelpLess but don't use it, it will not increase your compiled file size
-*  
-*  @How to use:
-*  Import helpless.less into your main style.less file. 
-*
-*  @Author: 
-*  Matt Woodfield - @m6tt
-*
-*  @Reference:
-*  ------------------------------------------------------------------------------
-*    BASICS                     =>    syntax
-*  ------------------------------------------------------------------------------
-*    - .reset                   =>    #hl.reset() - call outside of element
-*    - .clearfix                =>    #hl.clearfix()
-*    - .centered                =>    #hl.centered(width)
-*    - .border                  =>    #hl.border(color)
-*    - .opacity                 =>    #hl.opacity(value)
-*    - .round-all-corners       =>    #hl.round-all-corners(radius)
-*    - .rounded-corners         =>    #hl.rounded-corners(topLeft, topRight, bottomRight, bottomLeft)
-*    - .transition              =>    #hl.transition(property, duration, ease, delay)
-*    - .drop-shadow             =>    #hl.drop-shadow(x, y, blur, color)
-*    - .inner-shadow            =>    #hl.inner-shadow(x, y, blur, color)
-*    - .text-shadow             =>    #hl.text-shadow(x, y, blur, color)
-*    - .background-gradient     =>    #hl.background-gradient(colorFrom, colorTo, fallbackColor, fallbackImageUrl)
-*    - .scale                   =>    #hl.scale(amount)
-*    - .scaleX                  =>    #hl.scaleX(amount)
-*    - .scaleY                  =>    #hl.scaleY(amount)
-*    - .rotate                  =>    #hl.rotate(degrees)
-*    - .rotateX                 =>    #hl.rotateX(degrees)
-*    - .rotateY                 =>    #hl.rotateY(degrees)
-*    - .skew                    =>    #hl.skew(angleX, angleY)
-*    - .skewX                   =>    #hl.skewX(angleX)
-*    - .skewY                   =>    #hl.skewY(angleY)
-*    - .translate               =>    #hl.translate(x, y)
-*    - .translateX              =>    #hl.translateX(x)
-*    - .translateY              =>    #hl.translateY(y)
-*    - .matrix                  =>    #hl.matrix(n, n, n, n, n, n)
-*
-*  ---------------------------------------
-*    TYPOGRAPHY
-*  ---------------------------------------
-*    - .typo                    =>    namespace, do not call directly
-*     - .serif                  =>    #hl.typo.serif(webfont-name-optional);
-*     - .sans                   =>    #hl.typo.sans(webfont-name-optional);
-*     - .columns                =>    #hl.typo.columns(count, gap)
-* 
-*  ---------------------------------------
-*    IMAGES
-*  ---------------------------------------
-*    - .img                     =>    namespace, do not call directly
-*     - .responsive             =>    #hl.img.responsive();
-*     - .framed                 =>    #hl.img.framed();
-
-*  ---------------------------------------
-*    USER INTERFACE
-*  ---------------------------------------
-*    - .ui                      =>    namespace, do not call directly
-*     - .themes                 =>    namespace, do not call directly
-*      - .light                 =>    #hl.ui.themes.light(); - call within <body> element
-*      - .dark                  =>    #hl.ui.themes.dark(); - call within <body> element
-*     - .list                   =>    namespace, do not call directly
-*      - .subtle                =>    #hl.list.subtle(); - call within <ul> element
-*      - .horizontal            =>    #hl.list.horizontal(); - call within <ul> element
-*/
-#hl {
-  /************************************
-  * Meyer Reset
-  * http://meyerweb.com/eric/tools/css/reset/
-  ************************************/
-
-  /************************************
-  * Clearfix
-  *
-  * what?: Contains floats, for more info see h5bp.com/q.
-  *        Removes the need to add .clearfix as a class
-  *        to your elements.
-  *
-  ************************************/
-
-  /************************************
-  * Centered
-  *
-  * @what?: Center your object with an
-  *         automatic margin
-  *
-  * @params: width,      default = 960px
-  *
-  ************************************/
-
-  /************************************
-  * Border
-  *
-  * @what?: Add a 1px solid border
-  *        super quick.
-  *
-  * @params: colour,      default = #000
-  *
-  ************************************/
-
-  /************************************
-  * Opacity
-  *
-  * @what?: Add opacity to an HTML element that works
-  *         in all browsers including ie6+
-  *
-  * @params: value,      default = .5
-  *
-  ************************************/
-
-  /************************************
-  * Round all corners
-  *
-  * @what?: Rounds every corner equally
-  *
-  * @params: radius,      default = 5px
-  *
-  ************************************/
-
-  /************************************
-  * Rounded corners
-  *
-  * @what?: Round each corner individually
-  *
-  * @params: topLeft,     default = 5px
-  *          topRight,    default = 5px
-  *          bottomRight, default = 5px
-  *          bottomLeft,  default = 5px
-  *
-  ************************************/
-
-  /************************************
-  * Transition
-  *
-  * @what?: Defines a CSS3 transition
-  *
-  * @params: property,    default = all
-  *          duration,    default = .5s
-  *          ease,        default = linear
-  *          delay,       default = .0s
-  *
-  ************************************/
-
-  /************************************
-  * Drop shadow
-  *
-  * @what?: Adds an outer shadow to the
-  *         html element. To add a shadow
-  *         to text use #hl.text-shadow(...)
-  *
-  * @params: x,           default = 0px
-  *          y,           default = 1px
-  *          blur,        default = 1px
-  *          colour,      default = rgba(0, 0, 0, .6)
-  *
-  ************************************/
-
-  /************************************
-  * Inner shadow
-  *
-  * @what: Adds an inner shadow to the
-  *        html element.
-  *
-  * @params: x,           default = 0px
-  *          y,           default = 1px
-  *          blur,        default = 1px
-  *          colour,      default = rgba(0, 0, 0, .6)
-  *
-  ************************************/
-
-  /************************************
-  * Text shadow
-  *
-  * @what?: Adds an outer shadow to text
-  *
-  * @params: x,           default = 1px
-  *          y,           default = 1px
-  *          blur,        default = 1px
-  *          colour,      default = rgba(0, 0, 0, .6)
-  *
-  ************************************/
-
-  /************************************
-  * Background Gradient
-  *
-  * @what?: Adds a background gradient to
-  *         an HTML element
-  *
-  * @params: colourFrom,       default = #bbb
-  *          colourTo,         default = #f1f1f1
-  *          fallbackColour,   default = #f1f1f1
-  *          fallbackImageUrl, default = ''
-  *
-  ************************************/
-
-  /************************************
-  * Scale
-  *
-  * @what?: Defines a 2D scale transformation
-  *
-  * @params: amount,      default = 1
-  *
-  ************************************/
-
-  /************************************
-  * ScaleX
-  *
-  * @what?: Defines a scale transformation
-  *         by giving a value for the X-axis
-  *
-  * @params: x,           default = 1
-  *
-  ************************************/
-
-  /************************************
-  * ScaleY
-  *
-  * @what?: Defines a scale transformation
-  *         by giving a value for the Y-axis
-  *
-  * @params: y,           default = 1
-  *
-  ************************************/
-
-  /************************************
-  * Rotate
-  *
-  * @what?: Defines a 2D rotation, the angle
-  *         is specified in the parameter
-  *
-  * @params: degrees,     default = 90deg
-  *
-  ************************************/
-
-  /************************************
-  * RotateX
-  *
-  * @what?: Defines a 3D rotation along the X-axis
-  *
-  * @params: degrees,     default = 90deg
-  *
-  ************************************/
-
-  /************************************
-  * RotateY
-  *
-  * @what?: Defines a 3D rotation along the Y-axis
-  *
-  * @params: degrees,     default = 90deg
-  *
-  ************************************/
-
-  /************************************
-  * Skew
-  *
-  * @what?: Defines a 2D skew transformation
-  *         along the X- and the Y-axis
-  *
-  * @params: angleX,      default = 10deg
-  *          angleY,      default = 10deg
-  *
-  ************************************/
-
-  /************************************
-  * SkewX
-  *
-  * @what?: Defines a 2D skew transformation
-  *         along the X-axis
-  *
-  * @params: angleX,      default = 10deg
-  *
-  ************************************/
-
-  /************************************
-  * SkewY
-  *
-  * @what?: Defines a 2D skew transformation
-  *         along the Y-axis
-  *
-  * @params: angleY,      default = 10deg
-  *
-  ************************************/
-
-  /************************************
-  * Translate
-  *
-  * @what?: Defines a 2D translation
-  *
-  * @params: x,           default = 10px
-  *          y,           default = 10px
-  *
-  ************************************/
-
-  /************************************
-  * TranslateX
-  *
-  * @what?: Defines a translation, using
-  *         only the value for the X-axis
-  *
-  * @params: x,           default = 10px
-  *
-  ************************************/
-
-  /************************************
-  * TranslateY
-  *
-  * @what?: Defines a translation, using
-  *         only the value for the Y-axis
-  *
-  * @params: y,           default = 10px
-  *
-  ************************************/
-
-  /************************************
-  * Matrix
-  *
-  * @what?: Defines a 2D transformation,
-  *         using a matrix of six values
-  *
-  * @params: n1,          default = 0
-  *          n2,          default = 0
-  *          n3,          default = 0
-  *          n4,          default = 0
-  *          n5,          default = 0
-  *          n6,          default = 0
-  *
-  ************************************/
-
-  /***********************************
-  * TYPOGRAPHY
-  ***********************************/
-
-  /***********************************
-  * IMAGE
-  ***********************************/
-
-  /***********************************
-  * UI 
-  ***********************************/
-
-}
-#hl .typo {
-  /************************************
-    * Serif
-    *
-    * @what?: Quickly set your font family
-    *         as a serif set
-    *
-    * @params: @webfont,  default = none
-    *
-    ************************************/
-
-  /************************************
-    * Serif
-    *
-    * @what?: Quickly set your font family
-    *
-    * @params: @webfont,  default = none
-    *
-    ************************************/
-
-  /************************************
-    * Columns
-    *
-    * @what?: Sets CSS3 columns within
-    *         block of html text
-    *
-    * @params: count,       default = 1
-    *          gap,         default = 10px
-    *
-    ************************************/
-
-}
-#hl .img {
-  /************************************
-    * Responsive
-    *
-    * @what?: Set image max-width: 100%
-    *
-    ************************************/
-
-  /************************************
-    * Framed
-    *
-    * @what?: Add a quick 10px frame to your image
-    *
-    ************************************/
-
-}
-#hl .ui {
-  /***********************************
-     * PREDEFINED THEMES
-     ***********************************/
-
-  /***********************************
-     * LISTS
-     ***********************************/
-
-}
-#hl .ui .themes {
-  /***********************************
-       * Theme: Light
-       *
-       * @what?: Quickly style the base elements
-       *         of your page
-       *
-       ***********************************/
-
-  /***********************************
-       * Theme: Dark
-       *
-       * @what?: Quickly style the base elements
-       *         of your page
-       *
-       ***********************************/
-
-}
-#hl .ui .list {
-  /***********************************
-       * Subtle
-       *
-       * @what?: Quickly removes the styling 
-       *         from a list
-       *
-       ***********************************/
-
-  /***********************************
-       * Horizontal
-       *
-       * @what?: Creates a horizontal list, 
-       *         useful for styling your site nav
-       *
-       ***********************************/
-
-}
-/*  Styles added from HTML5 Boiler Plate less template*/
-/*
- * Hide from both screenreaders and browsers: h5bp.com/u
- */
-.hidden {
-  display: none !important;
-  visibility: hidden;
-}
-/*
- * Hide only visually, but have it available for screenreaders: h5bp.com/v
- */
-.visuallyhidden {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-}
-/*
- * Extends the .visuallyhidden class to allow the element to be focusable
- * when navigated to via the keyboard: h5bp.com/p
- */
-.visuallyhidden.focusable:active,
-.visuallyhidden.focusable:focus {
-  clip: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  position: static;
-  width: auto;
-}
-/*
- * Hide visually and from screenreaders, but maintain layout
- */
-.invisible {
-  visibility: hidden;
-}
 /* ==========================================================================
    Helper classes
    ========================================================================== */
@@ -629,8 +122,8 @@ body {
   font-size: 1em;
   line-height: 1.428571429;
   color: #333333;
-  background: #eeeeee;
-  max-width: 1120px;
+  background: #ffffff;
+  max-width: 1050px;
   margin: 0 auto;
 }
 /* margins */
@@ -793,6 +286,159 @@ textarea {
 /* ==========================================================================
    Import extra styles
    ========================================================================== */
+@import-once "mixins.less";
+.tagline {
+  font-size: 1.5em;
+  line-height: 1.35;
+  margin-bottom: 0.4em;
+}
+/* ---- button ---- */
+.button {
+  display: inline-block;
+  background: #C0E;
+  border: none;
+  padding: 0.8em 1.0em;
+  color: white;
+  text-shadow: 0 -1px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  border-radius: 7px;
+}
+.button:hover {
+  background: #D3F;
+  color: white;
+}
+.button:active {
+  background: #B0D;
+  box-shadow: inset 0 1px 10px rgba(0, 0, 0, 0.6);
+}
+/* ---- #content ---- */
+#content > .primary-content:nth-child(2n+1) {
+  background: rgba(204, 51, 51, 0.1);
+}
+#content li {
+  margin-bottom: 0.2em;
+}
+/* ---- parameters ---- */
+.params {
+  padding: 0;
+  list-style: none;
+}
+.param {
+  background: rgba(0, 204, 85, 0.05);
+  border-top: 2px solid rgba(0, 204, 85, 0.4);
+  padding: 0.4em 0.8em;
+  margin: 0;
+}
+.param,
+.param code {
+  font-size: 14px;
+}
+/* just one param */
+div.param {
+  margin-bottom: 0.4em;
+}
+.param-bit {
+  display: inline;
+  display: inline-block;
+  margin-bottom: 0;
+  margin-right: 1.0em;
+}
+.param-bit:last-child {
+  margin-right: 0;
+}
+.param-name {
+  font-size: 15px;
+  font-weight: normal;
+  color: #333;
+}
+.param-bit b {
+  font-weight: normal;
+}
+.param-bit.type .value {
+  color: #46A;
+}
+/* ---- packery ---- */
+/* clearfix */
+.packery:before,
+.packery:after {
+  content: " ";
+  display: table;
+}
+.packery:after {
+  clear: both;
+}
+/* ---- packery items ---- */
+#container {
+  background: #33d5c7;
+  /*border: 4px solid #333;
+    border-color: hsla(0, 0%, 0%, 0.3);*/
+
+  padding: 5px;
+}
+.item {
+  float: left;
+  padding: 5px;
+  clip: rect(0, 250px, 250px, 0);
+  width: 260px;
+  filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+  /* Firefox 10+, Firefox on Android */
+
+  filter: gray;
+  /* IE6-9 */
+
+  -webkit-filter: grayscale(100%);
+  /* Chrome 19+, Safari 6+, Safari 6+ iOS */
+
+  /*&.wide {
+        height: 260px;
+    }
+
+    &.high {
+        width: 260px;
+    }*/
+
+}
+.item.gigante {
+  background: #fa9a5a;
+  clip: auto;
+  z-index: 10;
+  /* keep it above other items */
+
+  width: 49.5%;
+  height: auto;
+  padding: 5px;
+  overflow: auto;
+  filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 1 0\'/></filter></svg>#grayscale");
+  -webkit-filter: grayscale(0%);
+}
+.packery .item.w2 {
+  width: 50%;
+  background: #9C0;
+}
+.packery .item.h2 {
+  height: 50%;
+  background: #0C9;
+}
+.packery .item.h4 {
+  height: 75%;
+  background: #C90;
+}
+.packery .item.w4 {
+  width: 75%;
+  background: #90C;
+}
+/* ---- instruction ---- */
+.instruction {
+  font-size: 18px;
+  margin-bottom: 0.2em;
+  color: #AAA;
+}
+/* ---- desktop media query ---- */
+@media screen and (min-width: 960px) {
+  .tagline {
+    font-size: 1.8em;
+  }
+}
 /* Code
 ------------------------- */
 pre,
@@ -1543,153 +1189,7 @@ you can use the generic selector below, but it's slower:
     position: fixed;
   }
 }
-.tagline {
-  font-size: 1.5em;
-  line-height: 1.35;
-  margin-bottom: 0.4em;
-}
-/* ---- button ---- */
-.button {
-  display: inline-block;
-  background: #C0E;
-  border: none;
-  padding: 0.8em 1.0em;
-  color: white;
-  text-shadow: 0 -1px rgba(0, 0, 0, 0.3);
-  cursor: pointer;
-  border-radius: 7px;
-}
-.button:hover {
-  background: #D3F;
-  color: white;
-}
-.button:active {
-  background: #B0D;
-  box-shadow: inset 0 1px 10px rgba(0, 0, 0, 0.6);
-}
-/* ---- #content ---- */
-#content > .primary-content:nth-child(2n+1) {
-  background: rgba(204, 51, 51, 0.1);
-}
-#content li {
-  margin-bottom: 0.2em;
-}
-/* ---- parameters ---- */
-.params {
-  padding: 0;
-  list-style: none;
-}
-.param {
-  background: rgba(0, 204, 85, 0.05);
-  border-top: 2px solid rgba(0, 204, 85, 0.4);
-  padding: 0.4em 0.8em;
-  margin: 0;
-}
-.param,
-.param code {
-  font-size: 14px;
-}
-/* just one param */
-div.param {
-  margin-bottom: 0.4em;
-}
-.param-bit {
-  display: inline;
-  display: inline-block;
-  margin-bottom: 0;
-  margin-right: 1.0em;
-}
-.param-bit:last-child {
-  margin-right: 0;
-}
-.param-name {
-  font-size: 15px;
-  font-weight: normal;
-  color: #333;
-}
-.param-bit b {
-  font-weight: normal;
-}
-.param-bit.type .value {
-  color: #46A;
-}
-/* ---- packery ---- */
-/* clearfix */
-.packery:before,
-.packery:after {
-  content: " ";
-  display: table;
-}
-.packery:after {
-  clear: both;
-}
-/* ---- packery items ---- */
-#container {
-  background: #33d5c7;
-  border: 4px solid #333;
-  border-color: rgba(0, 0, 0, 0.3);
-}
-.item {
-  position: relative;
-  width: 25%;
-  height: 278px;
-  float: left;
-  background: #33d5c7;
-  border: 4px solid #333;
-  border-color: rgba(0, 0, 0, 0.3);
-}
-.item img {
-  position: absolute;
-  clip: rect(0, 250px, 250px, 0);
-  width: 250px;
-  transition: all 0.5s ease-out;
-}
-.item.gigante {
-  width: 100%;
-  height: 750px;
-  background: #C90;
-  z-index: 10;
-  /* keep it above other items */
-
-}
-.item.gigante img {
-  height: 100%;
-  width: 100%;
-  clip: auto;
-  transition: all 0.5s ease-out;
-}
-.packery .item.w2 {
-  width: 50%;
-  background: #9C0;
-}
-.packery .item.h2 {
-  height: 50%;
-  background: #0C9;
-}
-.packery .item.h4 {
-  height: 75%;
-  background: #C90;
-}
-.packery .item.w4 {
-  width: 75%;
-  background: #90C;
-}
-/* ---- instruction ---- */
-.instruction {
-  font-size: 18px;
-  margin-bottom: 0.2em;
-  color: #AAA;
-}
-/* ---- desktop media query ---- */
-@media screen and (min-width: 960px) {
-  .tagline {
-    font-size: 1.8em;
-  }
-}
 /* ---- site nav ---- */
-#site-nav {
-  background: #C09;
-}
 #site-nav,
 #site-nav h1 {
   line-height: 44px;
