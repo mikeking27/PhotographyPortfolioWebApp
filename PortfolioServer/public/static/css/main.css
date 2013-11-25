@@ -357,23 +357,22 @@ div.param {
 .param-bit.type .value {
   color: #46A;
 }
-/* ---- packery ---- */
-/* clearfix */
+/* ---- packery items ---- */
+.packery {
+  background: #33d5c7;
+  padding: 5px;
+}
 .packery:before,
 .packery:after {
   content: " ";
+  /* 1 */
+
   display: table;
+  /* 2 */
+
 }
 .packery:after {
   clear: both;
-}
-/* ---- packery items ---- */
-#container {
-  background: #33d5c7;
-  /*border: 4px solid #333;
-    border-color: hsla(0, 0%, 0%, 0.3);*/
-
-  padding: 5px;
 }
 .item {
   float: left;
@@ -434,304 +433,113 @@ div.param {
     font-size: 1.8em;
   }
 }
-/* Code
-------------------------- */
-pre,
-code {
-  font-family: Consolas, Menlo, monospace;
-  font-size: 14px;
-  background: #EEE;
-  background: rgba(0, 0, 0, 0.05);
-  color: #333;
+/* ---- Social Links ---- */
+.socialLinks {
+  float: right;
 }
-pre {
-  padding: 0.5em;
+.socialLinks:before,
+.socialLinks:after {
+  content: " ";
+  /* 1 */
+
+  display: table;
+  /* 2 */
+
 }
-code {
-  padding: 0.1em 0.3em;
-  line-height: 1.2;
+.socialLinks:after {
+  clear: both;
 }
-pre code {
+/* ---- site nav ---- */
+header:before,
+header:after {
+  content: " ";
+  /* 1 */
+
+  display: table;
+  /* 2 */
+
+}
+header:after {
+  clear: both;
+}
+nav {
+  float: left;
+}
+nav:before,
+nav:after {
+  content: " ";
+  /* 1 */
+
+  display: table;
+  /* 2 */
+
+}
+nav:after {
+  clear: both;
+}
+nav > a,
+nav ol li > a {
+  margin: 0 20px;
+}
+nav ol {
+  margin-top: 0;
+}
+nav ol {
   padding: 0;
-  line-height: 1.5;
-  background: none;
+  list-style: none;
 }
-code .string,
-code .tag .value {
-  color: #072;
-}
-code .number,
-code .cp,
-code .literal {
-  color: #07D;
-}
-/*boolean*/
-code .keyword {
-  color: #C31;
-}
-/* keyword */
-code .kd,
-code .attribute {
-  color: #A61;
-}
-/* markup attribute */
-code .p {
-  color: #EDB;
-}
-/* punctuation */
-code .o {
-  color: #F63;
-}
-/* operator */
-code .nb {
-  color: #AA97AC;
-}
-/* support */
-/* comment */
-code .comment {
-  color: #999;
-  font-style: italic;
-}
-code .tag {
-  color: #37B;
-}
-/* Markup open tag */
-code .id {
-  color: #567;
-}
-/* css id */
-code .class {
-  color: #A63;
-}
-/* CSS class */
-code .rules {
-  color: #431;
-}
-code .m {
-  color: #DE8E50;
-}
-/* CSS value */
-code .nd {
-  color: #9FAD7E;
-}
-/* CSS pseudo selector */
-code .hexcolor {
-  color: #F63;
-}
-code .at_rule {
-  color: #088;
-}
-/* ---- demos ---- */
-.demo .packery,
-.demo.packery {
-  background: #FDD;
-  background: rgba(204, 153, 0, 0.2);
-}
-.demo .button {
-  margin-bottom: 0.8em;
-}
-/* ---- measurement demos ---- */
-#column-width-demo2 .grid-sizer {
-  width: 20%;
-}
-#row-height-demo2 .grid-sizer {
-  height: 60px;
-}
-#gutter-demo2 .gutter-sizer {
-  width: 3%;
-}
-/* ---- stamp ---- */
-.has-stamp {
-  position: relative;
-}
-.demo .stamp {
-  position: absolute;
-  width: 30%;
-  height: 60px;
-  background: red;
-  border: 4px dotted white;
-}
-#stamp-opt-demo .stamp1 {
-  left: 20%;
-  top: 10px;
-}
-#stamp-opt-demo .stamp2 {
-  right: 10%;
-  top: 80px;
-}
-#stamp-demo .stamp {
-  left: 20%;
-  top: 50px;
-  width: 50%;
-  height: 100px;
-}
-#stamp-demo .item {
-  opacity: 0.8;
-}
-/* counting */
-.packery.counting {
-  counter-reset: item;
-}
-.packery.counting .item:before {
-  counter-increment: item;
-  content: counter(item);
-  display: block;
-  color: white;
-  padding-top: 0.2em;
-  text-align: center;
-  font-size: 14px;
-}
-/* ---- draggable ---- */
-.draggable .item {
-  cursor: move;
-}
-.draggable .item:hover {
-  border-color: white;
-}
-.packery.draggable .item.is-dragging,
-.packery.draggable .item.is-positioning-post-drag,
-.packery.draggable .item.ui-draggable-dragging {
-  border-color: white;
-  background: #09F;
-  z-index: 10;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
-}
-/* ---- fit ---- */
-#fit-demo .item {
-  width: 25%;
-  height: 60px;
-}
-#fit-demo .item.gigante {
-  width: 100%;
-  background: #C90;
-  height: 90px;
-}
-/* ---- layout ---- */
-.clickable .item:hover {
-  border-color: white;
-  cursor: pointer;
-}
-/* ---- animate-item-size ---- */
-/* item is invisible, but used for layout */
-#animate-item-size .item,
-#animate-item-size .item-content {
-  width: 60px;
-  height: 60px;
-}
-#animate-item-size .item {
-  border: none;
-  background: transparent;
-}
-/* item-content is visible, and transitions size */
-#animate-item-size .item-content {
-  width: 60px;
-  height: 60px;
-  background: #09D;
-  border: 4px solid #333;
-  border-color: rgba(255, 255, 255, 0.4);
-  -webkit-transition: width 0.4s, height 0.4s;
-  -moz-transition: width 0.4s, height 0.4s;
-  -o-transition: width 0.4s, height 0.4s;
-  transition: width 0.4s, height 0.4s;
-}
-#animate-item-size .item:hover .item-content {
-  border-color: white;
-}
-/* both item and item content change size */
-#animate-item-size .item.is-expanded,
-#animate-item-size .item.is-expanded .item-content {
-  width: 180px;
-  height: 120px;
-}
-#animate-item-size .item.is-expanded {
-  z-index: 2;
-}
-#animate-item-size .item.is-expanded .item-content {
-  background: #C90;
-}
-/* ---- animate item size responsive ---- */
-#animate-item-size-responsive .item {
-  width: 20%;
-  height: 60px;
-  border: none;
-  background: transparent;
-}
-#animate-item-size-responsive .item-content {
-  width: 100%;
-  height: 100%;
-  background: #09D;
-  border: 4px solid #333;
-  border-color: rgba(255, 255, 255, 0.4);
-  -webkit-transition: width 0.4s, height 0.4s;
-  -moz-transition: width 0.4s, height 0.4s;
-  -o-transition: width 0.4s, height 0.4s;
-  transition: width 0.4s, height 0.4s;
-}
-/* item has expanded size */
-#animate-item-size-responsive .item.is-expanded {
-  width: 60%;
-  height: 120px;
-}
-#animate-item-size-responsive .item:hover {
-  cursor: pointer;
-}
-#animate-item-size-responsive .item:hover .item-content {
-  border-color: white;
-}
-#animate-item-size-responsive .item.is-expanded {
-  z-index: 2;
-}
-#animate-item-size-responsive .item.is-expanded .item-content {
-  background: #C90;
-}
-/* ---- order after drag ---- */
-#order-after-drag-demo .item {
-  padding: 10px;
-  font-size: 20px;
-  color: white;
-}
-/* ---- Metafizzy logo ---- */
-/* use custom font for logo */
-.metafizzy-logo {
-  font-family: 'Metafizzy Logo', sans-serif;
-}
-.metafizzy-logo .etafizzy {
+nav ol li:nth-child(2) {
   display: none;
 }
-/* ---- footer ---- */
-#footer {
-  position: relative;
-  padding-bottom: 1.0em;
-}
-.footer-content {
-  bottom: 20px;
-  text-align: center;
-  font-size: 12px;
-}
-#footer .metafizzy-logo {
-  display: block;
-  font-size: 80px;
-  line-height: 1.0;
+nav a {
   background: none;
-  opacity: 0.25;
+  font-size: 1.4em;
+  margin-right: 2em;
+  color: #bfbfbf;
 }
-#footer .metafizzy-logo:hover {
-  opacity: 1;
+nav a:hover {
+  text-decoration: underline;
+  color: #333333;
 }
-/* desktop */
+/* selected */
+.options-page nav .nav-options a,
+.methods-page nav .nav-methods a,
+.events-page nav .nav-events a,
+.draggable-page nav .nav-draggable a,
+.license-page nav .nav-license a,
+.appendix-page nav .nav-appendix a,
+.faq-page nav .nav-faq a {
+  background: #90C;
+}
 @media screen and (min-width: 960px) {
-  #footer {
-    height: 50px;
+  /* hide text on index */
+  .index-page nav h1 a {
+    display: none;
   }
-  .footer-content {
+  nav,
+  nav h1 {
+    line-height: 60px;
+  }
+  nav h1 {
     width: 200px;
-    position: absolute;
-    left: 0;
-    bottom: 1.0em;
+    height: 60px;
+    font-size: 2.0em;
   }
-  #footer .metafizzy-logo {
-    font-size: 110px;
+  nav ol {
+    font-size: 17px;
   }
+}
+/* ---- Logo ---- */
+.logo {
+  float: right;
+}
+/* ---- footer ---- */
+footer {
+  position: relative;
+  padding: 1.0em;
+}
+.socialLinks {
+  float: right;
 }
 #hero {
   background: #C09;
@@ -1047,205 +855,4 @@ you can use the generic selector below, but it's slower:
 }
 .icon-github:before {
   content: "\e000";
-}
-/* ---- primary-content ---- */
-/* stuff that isn't in the gutter */
-.primary-content {
-  padding-left: 10px;
-  padding-right: 10px;
-}
-#content .primary-content > * {
-  max-width: 700px;
-}
-#content #notification,
-#content #hero-demos {
-  max-width: none;
-}
-/* ---- #content ---- */
-#content h2,
-#content .horiz-rule {
-  font-size: 1.7em;
-  font-weight: 400;
-  padding: 0.4em 0;
-}
-#content h2:target {
-  padding-left: 0.5em;
-  background: #C09;
-  color: white;
-  border-top-color: #C90;
-}
-/* ---- #page-nav ---- */
-#page-nav {
-  padding: 1.0em 0;
-  font-size: 13px;
-  z-index: 2;
-  /* above packeries */
-
-}
-#page-nav li {
-  display: inline-block;
-}
-#page-nav li:after {
-  content: ' •';
-  margin: 0 0.3em;
-  opacity: 0.5;
-}
-#page-nav li:last-child:after {
-  content: none;
-}
-/* ---- row ---- */
-.row .cell {
-  margin-bottom: 0.8em;
-}
-/* clearfix */
-.row:after {
-  content: ' ';
-  display: block;
-  clear: both;
-}
-.row4 .cell {
-  float: left;
-  width: 48%;
-  margin-right: 2%;
-}
-/* tablet-ish */
-@media screen and (min-width: 800px) {
-  #content .primary-content {
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
-  #content .primary-content > * {
-    max-width: 700px;
-  }
-  /* stuff that can go extra wide */
-  #content .primary-content .row,
-  #content #notification,
-  #content #hero-demos {
-    max-width: 1200px;
-  }
-  .row {
-    margin-bottom: 0.8em;
-  }
-  /* two column by default*/
-  .row .cell {
-    float: left;
-    width: 48.75%;
-    margin-right: 2.5%;
-    margin-bottom: 0;
-  }
-  /* IE8 doesn't support :last-child */
-  .lt-ie9 .row .cell {
-    margin-right: 1.5%;
-  }
-  /* no margin */
-  /*  .example.row .cell {
-      width: 50%;
-      margin-right: 0;
-    }*/
-  /* three column */
-  .row3 .cell {
-    width: 31.6%;
-  }
-  /* four column */
-  .row4 .cell {
-    width: 23.1%;
-  }
-  .row .cell:last-child {
-    margin-right: 0;
-  }
-}
-/* desktop */
-@media screen and (min-width: 960px) {
-  .primary-content {
-    padding-left: 200px;
-    padding-right: 20px;
-  }
-  #page-nav {
-    position: absolute;
-    left: 0;
-    top: 60px;
-    list-style: none;
-    padding: 0;
-    width: 200px;
-    padding: 20px;
-  }
-  #page-nav li {
-    display: block;
-    margin-bottom: 4px;
-    margin-left: 0;
-  }
-  #page-nav li:after {
-    content: none;
-  }
-}
-/* fix #page-nav only if we have enough height */
-@media screen and (min-width: 960px) and (min-height: 540px) {
-  #page-nav {
-    position: fixed;
-  }
-}
-/* ---- site nav ---- */
-nav:before,
-nav:after {
-  content: " ";
-  /* 1 */
-
-  display: table;
-  /* 2 */
-
-}
-nav:after {
-  clear: both;
-}
-nav > a,
-nav ol li > a {
-  margin: 0 20px;
-}
-nav ol {
-  margin-top: 0;
-}
-nav ol {
-  padding: 0;
-  list-style: none;
-}
-nav ol li:nth-child(2) {
-  display: none;
-}
-nav a {
-  background: none;
-  font-size: 1.4em;
-  margin-right: 2em;
-  color: #bfbfbf;
-}
-nav a:hover {
-  text-decoration: underline;
-  color: #333333;
-}
-/* selected */
-.options-page nav .nav-options a,
-.methods-page nav .nav-methods a,
-.events-page nav .nav-events a,
-.draggable-page nav .nav-draggable a,
-.license-page nav .nav-license a,
-.appendix-page nav .nav-appendix a,
-.faq-page nav .nav-faq a {
-  background: #90C;
-}
-@media screen and (min-width: 960px) {
-  /* hide text on index */
-  .index-page nav h1 a {
-    display: none;
-  }
-  nav,
-  nav h1 {
-    line-height: 60px;
-  }
-  nav h1 {
-    width: 200px;
-    height: 60px;
-    font-size: 2.0em;
-  }
-  nav ol {
-    font-size: 17px;
-  }
 }

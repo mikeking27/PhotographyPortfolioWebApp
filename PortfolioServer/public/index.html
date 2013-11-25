@@ -14,7 +14,22 @@
 
 </head>
 <body>
-    <header>M Dawson Photography</header>
+    <!-- Social Icon scripts -->
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=120339864699820";
+            fjs.parentNode.insertBefore(js, fjs);
+        }
+        (document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <script type="text/javascript" async data-pin-hover="true" src="//assets.pinterest.com/js/pinit.js"></script>
+    <!-- End of social icons scripts --> 
+
     {{photos}}
 		<form method="post" enctype="multipart/form-data">
             <input type="file" name="image" /><br />
@@ -27,14 +42,19 @@
             <input type="submit" />
         </form>
 
-    <nav id="site-nav">
-        <a href="#">year</a>
-        <a href="#">album</a>
-        <a href="#">subjects</a>
-        <a href="#">about</a>
-    </nav>
+    <header>
+        <nav>
+            <a href="#">year</a>
+            <a href="#">album</a>
+            <a href="#">subjects</a>
+            <a href="#">about</a>
+        </nav>
+        <div class="logo">
+            M Dawson Photography
+        </div>
+    </header>
     
-    <div id="container" class="packery" data-packery-options='{ "itemSelector": ".item", "gutter": 10 }'>
+    <section id="container" class="packery" data-packery-options='{ "itemSelector": ".item", "gutter": 10 }'>
         <div class="grid-sizer"></div>
         <img src="static/images/DSCF0155.jpg" alt="" class="item wide" />
         <img src="static/images/DSCF0464.jpg" alt="" class="item wide" />
@@ -51,14 +71,14 @@
         <img src="static/images/DSCF3157.jpg" alt="" class="item high" />
         <img src="static/images/DSCF0575.jpg" alt="" class="item wide" />
         <img src="static/images/DSCF3233.jpg" alt="" class="item wide" />
-    </div>
+    </section>
     <footer>
-        <div class="copyright">Copyright &copy;2013</div>
         <div class="socialLinks">
-            <a href="#">Facebook</a>
-            <a href="#">Twitter</a>
-            <a href="#">Pinterest</a>
+            <a href="https://twitter.com/mattdc22" class="twitter-follow-button" data-show-count="false">Follow @mattdc22</a>
+            <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
+            <a class="fb-like" data-href="https://www.facebook.com/matthew.cunningham.14019" data-width="40" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></a>
         </div>
+        <div class="copyright">M Dawson Photography Copyright &copy;2013</div>
     </footer>
 
 
