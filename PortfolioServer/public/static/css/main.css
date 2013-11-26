@@ -1,0 +1,858 @@
+﻿/*
+ * HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/
+ *
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+/* ==========================================================================
+   Import Variables, helper and base styles
+   ========================================================================== */
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+/*
+ * Image replacement
+ */
+.ir {
+  background-color: transparent;
+  border: 0;
+  overflow: hidden;
+  /* IE 6/7 fallback */
+
+  *text-indent: -9999px;
+}
+.ir:before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 150%;
+}
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+@media only screen and (min-width: 35em) {
+  /* Style adjustments for viewports that meet the condition */
+}
+@media print, (-o-min-device-pixel-ratio: 5/4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
+  /* Style adjustments for high resolution devices */
+}
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid required HTTP connection: h5bp.com/r
+   ========================================================================== */
+@media print {
+  * {
+    background: transparent !important;
+    color: #000 !important;
+    /* Black prints faster: h5bp.com/s */
+  
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+  /*
+       * Don't show links for images, or javascript/internal links
+       */
+  .ir a:after,
+  a[href^="javascript:"]:after,
+  a[href^="#"]:after {
+    content: "";
+  }
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+  thead {
+    display: table-header-group;
+    /* h5bp.com/t */
+  
+  }
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+  img {
+    max-width: 100% !important;
+  }
+  @page  {
+    margin: 0.5cm;
+  }
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html,
+button,
+input,
+select,
+textarea {
+  color: #222;
+}
+html {
+  font-size: 62.5%;
+  line-height: 1.4;
+}
+body {
+  font-family: 'Open Sans', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Arial, sans-serif;
+  font-size: 1em;
+  line-height: 1.428571429;
+  color: #333333;
+  background: #ffffff;
+  max-width: 1050px;
+  margin: 0 auto;
+}
+/* margins */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul,
+pre {
+  margin-top: 0;
+  margin-bottom: 1.0em;
+}
+/* Fonts
+------------------------- */
+/*@font-face {
+  font-family: 'Metafizzy Logo';
+  src: url('../fonts/metafizzylogo-regular.eot');
+  src: url('../fonts/metafizzylogo-regular.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/metafizzylogo-regular.woff') format('woff'),
+       url('../fonts/metafizzylogo-regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}*/
+/* Montserrat */
+h1,
+h2,
+h3,
+h4,
+h5,
+#site-nav,
+#page-nav,
+.tagline,
+#what,
+.param-bit b,
+.button,
+.instruction,
+#notification,
+#footer .copyright {
+  font-family: 'Montserrat', Gotham, 'Proxima Nova', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Arial, sans-serif;
+}
+/* ---- links ---- */
+a,
+a code {
+  color: #bfbfbf;
+  text-decoration: none;
+  background: rgba(242, 127, 13, 0.03);
+}
+a:hover,
+a:hover code {
+  color: #333333;
+}
+/* ---- headers ---- */
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.25;
+}
+h1,
+h2 {
+  color: #C09;
+}
+h1 {
+  font-weight: 500;
+  font-size: 2.65em;
+  margin-bottom: 0.2em;
+}
+h2 {
+  font-size: 2em;
+}
+h3 {
+  font-size: 1.4em;
+  margin-bottom: 0.5em;
+}
+h4 {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 1.1em;
+}
+/* ---- lists ---- */
+ul,
+ol {
+  padding-left: 1.8em;
+}
+/*
+ * Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+  -webkit-text-shadow: none;
+}
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+  -webkit-text-shadow: none;
+}
+/*
+ * A better looking default horizontal rule
+ */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+/*
+ * Remove the gap between images, videos, audio and canvas and the bottom of
+ * their containers: h5bp.com/i/440
+ */
+audio,
+canvas,
+img,
+video {
+  vertical-align: middle;
+}
+/*
+ * Remove default fieldset styles.
+ */
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+/*
+ * Allow only vertical resizing of textareas.
+ */
+textarea {
+  resize: vertical;
+}
+/* ==========================================================================
+   Import your favorite Grid helper library
+   ========================================================================== */
+/*
+	Frameless			<http://framelessgrid.com/>
+	by Joni Korpi 		<http://jonikorpi.com/>
+	licensed under CC0	<http://creativecommons.org/publicdomain/zero/1.0/>
+	
+	Adapted by Sylvain Balbous (https://github.com/sylbal) for H5BP-Less plugin
+	- Removed Reset and Normalize parts
+	- Added helper functions for margin
+	- Added namespace #fl
+		* to use vars in your mixin, import the namespace, ie.:
+			.mixin {
+				#fl;
+				width:@4cols;
+			}
+		* to use functions, call it via the mixin, ie.:
+			.mixin {
+				#fl > .width (4);
+*/
+/* ==========================================================================
+   Import extra styles
+   ========================================================================== */
+@import-once "mixins.less";
+.tagline {
+  font-size: 1.5em;
+  line-height: 1.35;
+  margin-bottom: 0.4em;
+}
+/* ---- button ---- */
+.button {
+  display: inline-block;
+  background: #C0E;
+  border: none;
+  padding: 0.8em 1.0em;
+  color: white;
+  text-shadow: 0 -1px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  border-radius: 7px;
+}
+.button:hover {
+  background: #D3F;
+  color: white;
+}
+.button:active {
+  background: #B0D;
+  box-shadow: inset 0 1px 10px rgba(0, 0, 0, 0.6);
+}
+/* ---- #content ---- */
+#content > .primary-content:nth-child(2n+1) {
+  background: rgba(204, 51, 51, 0.1);
+}
+#content li {
+  margin-bottom: 0.2em;
+}
+/* ---- parameters ---- */
+.params {
+  padding: 0;
+  list-style: none;
+}
+.param {
+  background: rgba(0, 204, 85, 0.05);
+  border-top: 2px solid rgba(0, 204, 85, 0.4);
+  padding: 0.4em 0.8em;
+  margin: 0;
+}
+.param,
+.param code {
+  font-size: 14px;
+}
+/* just one param */
+div.param {
+  margin-bottom: 0.4em;
+}
+.param-bit {
+  display: inline;
+  display: inline-block;
+  margin-bottom: 0;
+  margin-right: 1.0em;
+}
+.param-bit:last-child {
+  margin-right: 0;
+}
+.param-name {
+  font-size: 15px;
+  font-weight: normal;
+  color: #333;
+}
+.param-bit b {
+  font-weight: normal;
+}
+.param-bit.type .value {
+  color: #46A;
+}
+/* ---- packery items ---- */
+.packery {
+  background: #33d5c7;
+  padding: 5px;
+}
+.packery:before,
+.packery:after {
+  content: " ";
+  /* 1 */
+
+  display: table;
+  /* 2 */
+
+}
+.packery:after {
+  clear: both;
+}
+.item {
+  float: left;
+  padding: 5px;
+  clip: rect(0, 250px, 250px, 0);
+  width: 260px;
+  filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+  /* Firefox 10+, Firefox on Android */
+
+  filter: gray;
+  /* IE6-9 */
+
+  -webkit-filter: grayscale(100%);
+  /* Chrome 19+, Safari 6+, Safari 6+ iOS */
+
+}
+.item.wide {
+  height: 198px;
+}
+.item.gigante {
+  background: #fa9a5a;
+  clip: auto;
+  z-index: 10;
+  /* keep it above other items */
+
+  width: 49.5%;
+  height: auto;
+  padding: 5px;
+  overflow: auto;
+  filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 1 0\'/></filter></svg>#grayscale");
+  -webkit-filter: grayscale(0%);
+}
+.packery .item.w2 {
+  width: 50%;
+  background: #9C0;
+}
+.packery .item.h2 {
+  height: 50%;
+  background: #0C9;
+}
+.packery .item.h4 {
+  height: 75%;
+  background: #C90;
+}
+.packery .item.w4 {
+  width: 75%;
+  background: #90C;
+}
+/* ---- instruction ---- */
+.instruction {
+  font-size: 18px;
+  margin-bottom: 0.2em;
+  color: #AAA;
+}
+/* ---- desktop media query ---- */
+@media screen and (min-width: 960px) {
+  .tagline {
+    font-size: 1.8em;
+  }
+}
+/* ---- Social Links ---- */
+.socialLinks {
+  float: right;
+}
+.socialLinks:before,
+.socialLinks:after {
+  content: " ";
+  /* 1 */
+
+  display: table;
+  /* 2 */
+
+}
+.socialLinks:after {
+  clear: both;
+}
+/* ---- site nav ---- */
+header:before,
+header:after {
+  content: " ";
+  /* 1 */
+
+  display: table;
+  /* 2 */
+
+}
+header:after {
+  clear: both;
+}
+nav {
+  float: left;
+}
+nav:before,
+nav:after {
+  content: " ";
+  /* 1 */
+
+  display: table;
+  /* 2 */
+
+}
+nav:after {
+  clear: both;
+}
+nav > a,
+nav ol li > a {
+  margin: 0 20px;
+}
+nav ol {
+  margin-top: 0;
+}
+nav ol {
+  padding: 0;
+  list-style: none;
+}
+nav ol li:nth-child(2) {
+  display: none;
+}
+nav a {
+  background: none;
+  font-size: 1.4em;
+  margin-right: 2em;
+  color: #bfbfbf;
+}
+nav a:hover {
+  text-decoration: underline;
+  color: #333333;
+}
+/* selected */
+.options-page nav .nav-options a,
+.methods-page nav .nav-methods a,
+.events-page nav .nav-events a,
+.draggable-page nav .nav-draggable a,
+.license-page nav .nav-license a,
+.appendix-page nav .nav-appendix a,
+.faq-page nav .nav-faq a {
+  background: #90C;
+}
+@media screen and (min-width: 960px) {
+  /* hide text on index */
+  .index-page nav h1 a {
+    display: none;
+  }
+  nav,
+  nav h1 {
+    line-height: 60px;
+  }
+  nav h1 {
+    width: 200px;
+    height: 60px;
+    font-size: 2.0em;
+  }
+  nav ol {
+    font-size: 17px;
+  }
+}
+/* ---- Logo ---- */
+.logo {
+  float: right;
+}
+/* ---- footer ---- */
+footer {
+  position: relative;
+  padding: 1.0em;
+}
+.socialLinks {
+  float: right;
+}
+#hero {
+  background: #C09;
+  color: #FAF3F5;
+  position: relative;
+  overflow: hidden;
+}
+/* keep above packery demo */
+#hero .primary-content > * {
+  position: relative;
+  z-index: 2;
+}
+#hero .primary-content {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+#hero h1 {
+  font-size: 70px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.6em;
+  padding-top: 0.6em;
+  color: white;
+}
+#hero .tagline {
+  font-size: 24px;
+  margin-bottom: 0.8em;
+  line-height: 1.2;
+}
+#hero .packery {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  padding: 0px 2px;
+  border: none;
+}
+#hero .item {
+  border: none;
+  background: rgba(0, 0, 0, 0.3);
+}
+/* ---- big ol buttons ---- */
+.big-ol-buttons {
+  list-style: none;
+  padding: 0;
+}
+.big-ol-buttons .button {
+  display: block;
+  font-size: 1.3em;
+  line-height: 1.2em;
+  position: relative;
+  padding-left: 50px;
+}
+.big-ol-buttons .icon {
+  font-size: 32px;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+/* ---- big tagline ---- */
+#big-tagline {
+  background: #0C9;
+  color: white;
+  padding: 20px 0;
+}
+#big-tagline .tagline {
+  line-height: 1.2;
+  margin-bottom: 0;
+  font-size: 36px;
+}
+#big-tagline strong {
+  color: #333;
+  color: rgba(0, 0, 0, 0.6);
+}
+/* ---- hero demo ---- */
+#hero-demos {
+  background: #90C;
+  color: rgba(0, 0, 0, 0.45);
+  padding: 2.0em 0;
+}
+#hero-demos .big-tagline {
+  font-size: 36px;
+  line-height: 1.2;
+  color: white;
+  margin-bottom: 0.8em;
+}
+#hero-demos .big-tagline strong {
+  color: rgba(0, 0, 0, 0.6);
+}
+#hero-demos .row {
+  margin-bottom: 0;
+}
+#hero-demos .cell.tagline {
+  font-size: 1.2em;
+  text-align: center;
+}
+#hero-demos .item {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: rgba(0, 0, 0, 0.4);
+}
+#hero-demos .item:hover,
+#hero-demos .item.is-dragging {
+  border: 4px solid white;
+  cursor: move;
+}
+#hero-demos .item.is-dragging {
+  z-index: 2 ;
+}
+#hero-demos .packery {
+  border: none;
+  margin-bottom: 0.5em;
+}
+#hero-demos .item.expanded {
+  width: 100% !important;
+}
+/* ---- basically ---- */
+#hero-demos .basically .item1 {
+  width: 45%;
+}
+#hero-demos .basically .item2 {
+  width: 25%;
+}
+#hero-demos .basically .item3 {
+  width: 20%;
+}
+#hero-demos .basically .item4 {
+  width: 30%;
+}
+#hero-demos .basically .item5 {
+  width: 50%;
+}
+#hero-demos .basically .item6 {
+  width: 40%;
+}
+#hero-demos .basically .item7 {
+  width: 30%;
+}
+#hero-demos .basically .item8 {
+  width: 25%;
+}
+#hero-demos .basically .item9 {
+  width: 20%;
+}
+#hero-demos .basically .item10 {
+  width: 60%;
+}
+/* ---- masonry ---- */
+#hero-demos .masonry .item {
+  width: 31.2%;
+  margin: 2px 1%;
+}
+#hero-demos .masonry .grid-sizer {
+  width: 33.33%;
+}
+#hero-demos .masonry .item1 {
+  height: 40px;
+}
+#hero-demos .masonry .item2 {
+  height: 80px;
+}
+#hero-demos .masonry .item3 {
+  height: 25px;
+}
+#hero-demos .masonry .item4 {
+  height: 80px;
+}
+#hero-demos .masonry .item5 {
+  height: 50px;
+}
+#hero-demos .masonry .item6 {
+  height: 55px;
+}
+#hero-demos .masonry .item7 {
+  height: 55px;
+}
+#hero-demos .masonry .item8 {
+  height: 45px;
+}
+/* ---- desktop ---- */
+#hero-demos .meticulous .grid-sizer {
+  width: 20%;
+}
+#hero-demos .meticulous .item {
+  width: 18%;
+  margin: 2px 1%;
+}
+#hero-demos .meticulous .item.w2 {
+  width: 38%;
+}
+#hero-demos .meticulous .item.h2 {
+  height: 84px;
+}
+#hero-demos .meticulous .item.w4 {
+  width: 78%;
+}
+#hero-demos .meticulous .item.h4 {
+  height: 172px;
+}
+#hero-demos .meticulous .item.expanded {
+  width: 98% !important;
+}
+/* ---- desktop ---- */
+@media screen and (min-width: 960px) {
+  #hero .packery {
+    padding-left: 200px;
+  }
+  #hero h1 {
+    font-size: 140px;
+    padding-top: 20px;
+    margin-bottom: 30px;
+  }
+  #hero .tagline {
+    font-size: 32px;
+  }
+  /* stamp elements, shape around titles */
+  #hero .stamp {
+    position: absolute;
+    /*  background: hsla(0, 0%, 100%, 0.4); */
+  
+    z-index: 2;
+  }
+  #hero .stamp-ackery {
+    width: 476px;
+    height: 90px;
+    left: 294px;
+    top: 92px;
+  }
+  #hero .stamp-p-top {
+    width: 95px;
+    height: 82px;
+    left: 200px;
+    top: 70px;
+  }
+  #hero .stamp-p-bottom {
+    width: 40px;
+    height: 90px;
+    left: 200px;
+    top: 92px;
+  }
+  #hero .stamp-k {
+    width: 34px;
+    height: 90px;
+    left: 459px;
+    top: 65px;
+  }
+  #hero .stamp-y {
+    width: 70px;
+    height: 88px;
+    left: 675px;
+    top: 120px;
+  }
+  #hero .stamp-tagline {
+    width: 494px;
+    height: 40px;
+    left: 200px;
+    top: 239px;
+  }
+  /* buttons */
+  .big-ol-buttons .button {
+    font-size: 1.6em;
+    padding-left: 86px;
+    min-height: 94px;
+  }
+  .big-ol-buttons .icon {
+    font-size: 56px;
+    left: 18px;
+    top: 16px;
+  }
+}
+@font-face {
+  font-family: 'icomoon';
+  src: url('../fonts/icomoon.eot');
+  src: url('../fonts/icomoon.eot?#iefix') format('embedded-opentype'), url('../fonts/icomoon.woff') format('woff'), url('../fonts/icomoon.ttf') format('truetype'), url('../fonts/icomoon.svg#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+[data-icon]:before {
+  font-family: 'icomoon';
+  content: attr(data-icon);
+  speak: none;
+  font-weight: normal;
+  font-variant: normal;
+  font-style: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+/* Use the following CSS code if you want to have a class per icon */
+/*
+Instead of a list of all class selectors,
+you can use the generic selector below, but it's slower:
+[class*="icon-"] {
+*/
+.icon {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+.icon-file-download:before {
+  content: "\e001";
+}
+.icon-folder-download:before {
+  content: "\e002";
+}
+.icon-github:before {
+  content: "\e000";
+}

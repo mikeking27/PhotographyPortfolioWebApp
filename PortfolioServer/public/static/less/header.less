@@ -1,0 +1,81 @@
+/* ---- site nav ---- */
+
+header {
+    .clearfix();
+}
+
+nav {
+    float: left;
+    .clearfix();
+}
+
+nav > a,
+nav ol li > a {
+  margin: 0 20px;
+}
+nav ol {
+  margin-top: 0;
+}
+nav ol {
+  padding: 0;
+  list-style: none;
+}
+nav ol li:nth-child(2) {
+  display: none;
+}
+
+nav a {
+  background: none;
+  font-size: 1.4em;
+  margin-right: 2em;
+  color: @link-color;
+}
+
+nav a:hover {
+    text-decoration: underline;
+    color: @link-hover-color;
+}
+
+nav ol a:hover {
+}
+
+/* selected */
+.options-page nav .nav-options a,
+.methods-page nav .nav-methods a,
+.events-page nav .nav-events a,
+.draggable-page nav .nav-draggable a,
+.license-page nav .nav-license a,
+.appendix-page nav .nav-appendix a,
+.faq-page nav .nav-faq a {
+  background: #90C;
+}
+
+
+@media screen and ( min-width: 960px ) {
+
+  /* hide text on index */
+  .index-page nav h1 a {
+    display: none;
+  }
+
+  nav,
+  nav h1 {
+    line-height: 60px;
+  }
+
+  nav h1 {
+    width: 200px;
+    height: 60px;
+    font-size: 2.0em;
+  }
+
+  nav ol {
+    font-size: 17px;
+  }
+
+}
+
+/* ---- Logo ---- */
+.logo {
+    float: right;
+}

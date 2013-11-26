@@ -1,4 +1,4 @@
-<html>
+<!-- <html>
 	<head></head>
 	<body>
 		{{photos}}
@@ -33,5 +33,149 @@ Delete
                         <input type="text" name="src"/><br/>
                         <input type="submit"/>          
                 </form>
-	</body>
+	</body>-->
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>M Dawson Photography</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+
+</head>
+<body>
+    <!-- Social Icon scripts -->
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=120339864699820";
+            fjs.parentNode.insertBefore(js, fjs);
+        }
+        (document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <script type="text/javascript" async data-pin-hover="true" src="//assets.pinterest.com/js/pinit.js"></script>
+    <!-- End of social icons scripts --> 
+
+	<form method="post" action="/UploadPhoto" enctype="multipart/form-data">
+            <input type="file" name="image" /><br />
+            <label>Description</label><br />
+            <input type="text" name="description" /><br />
+            <label>Width</label><br />
+            <input type="text" name="width" /><br />
+            <label>Height</label><br />
+            <input type="text" name="height" /><br />
+            <input type="submit" />
+        </form>
+
+    <header>
+        <nav>
+            <a href="#">year</a>
+            <a href="#">album</a>
+            <a href="#">subjects</a>
+            <a href="#">about</a>
+        </nav>
+        <div class="logo">
+            M Dawson Photography
+        </div>
+    </header>
+    
+    <section id="container" class="packery" data-packery-options='{ "itemSelector": ".item", "gutter": 10 }'>
+        <div class="grid-sizer"></div>
+        <!--<img src="static/images/DSCF0155.jpg" alt="" class="item wide" />
+        <img src="static/images/DSCF0464.jpg" alt="" class="item wide" />
+        <img src="static/images/DSCF2861.jpg" alt="" class="item wide" />
+        <img src="static/images/Buckles_Harris Lake 06.05.27 021.jpg" alt="" class="item wide" />
+        <img src="static/images/DSCF0273.jpg" alt="" class="item wide" />
+        <img src="static/images/DSCF3295.jpg" alt="" class="item wide" />
+        <img src="static/images/DSCF3424.jpg" alt="" class="item wide" />
+        <img src="static/images/DSCF3829.jpg" alt="" class="item wide" />
+        <img src="static/images/DSCF5163.jpg" alt="" class="item wide" />
+        <img src="static/images/DSCF5309.jpg" alt="" class="item wide" />
+        <img src="static/images/DSCF7325.jpg" alt="" class="item wide" />
+        <img src="static/images/DSCF8037.jpg" alt="" class="item wide" />
+        <img src="static/images/DSCF3157.jpg" alt="" class="item high" />
+        <img src="static/images/DSCF0575.jpg" alt="" class="item wide" />
+        <img src="static/images/DSCF3233.jpg" alt="" class="item wide" />-->
+	{{photos}}
+    </section>
+    <footer>
+        <div class="socialLinks">
+            <a href="https://twitter.com/mattdc22" class="twitter-follow-button" data-show-count="false">Follow @mattdc22</a>
+            <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
+            <a class="fb-like" data-href="https://www.facebook.com/matthew.cunningham.14019" data-width="40" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></a>
+        </div>
+        <div class="copyright">M Dawson Photography Copyright &copy;2013</div>
+    </footer>
+
+
+
+    <!-- JavaScript at the bottom for fast page loading -->
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+
+    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    <script src="bower_components/classie/classie.js"></script>
+    <script src="bower_components/eventie/eventie.js"></script>
+    <script src="bower_components/doc-ready/doc-ready.js"></script>
+    <script src="bower_components/eventEmitter/EventEmitter.js"></script>
+    <script src="bower_components/get-style-property/get-style-property.js"></script>
+    <script src="bower_components/jquery-bridget/jquery.bridget.js"></script>
+    <script src="bower_components/matches-selector/matches-selector.js"></script>
+    <script src="bower_components/get-size/get-size.js"></script>
+    <script src="bower_components/outlayer/item.js"></script>
+    <script src="bower_components/outlayer/outlayer.js"></script>
+    <script src="bower_components/packery/js/rect.js"></script>
+    <script src="bower_components/packery/js/item.js"></script>
+    <script src="bower_components/packery/js/packer.js"></script>
+    <script src="bower_components/packery/js/packery.js"></script>
+
+    <script>
+        var container = document.querySelector('#container');
+        var pckry = new Packery(container, {
+            // options
+            itemSelector: '.item'
+        });
+        eventie.bind(container, 'click', function (event) {
+            // don't proceed if item wideas not clicked on
+            var target = event.target;
+            if (!classie.has(target, 'item')) {
+                return;
+            }
+
+            var isGigante = classie.has(target, 'gigante');
+            classie.toggleClass(target, 'gigante');
+
+            if (isGigante) {
+                // if shrinking, just layout
+                pckry.layout();
+            } else {
+                // if expanding, fit it
+                pckry.fit(target);
+            }
+        });
+        pckry.bindResize();
+    </script>
+    <!-- end scripts -->
+
+    <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
+       chromium.org/developers/how-tos/chrome-frame-getting-started -->
+    <!--[if lt IE 7 ]>
+    <script defer src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+    <script defer>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+  <![endif]-->
+
+</body>
 </html>
