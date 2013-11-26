@@ -101,11 +101,13 @@ var assembleAndTransmit = function(photos, res){
 
 	var photoMarkup = '';
 	for(var i = photos.length; i--; photoMarkup += photos[i].markup);
-	page = page.replace('{{photos}}', photoMarkup);
+	var markup = '', lines = page.split('\n');
+	for(var i = 0; i < lines.length; i++)
+		markup += lines[i].replace('{{photos}}', photoMarkup) + '\n';
 
 	res.setHeader('Content-Type', 'text/html');
-	res.setHeader('Content-Length', page.length);
-	res.send(page);
+	res.setHeader('Content-Length', markup.length);
+	res.send(markup);
 };
 
 var storeData = function(data){
