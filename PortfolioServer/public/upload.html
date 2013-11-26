@@ -1,0 +1,11 @@
+	<div class="item wide">
+		{{photo}}
+		<form method="post" action="/UploadPhoto" enctype="multipart/form-data">
+			<input type="file" name="image" /><br />
+			<label>Description</label><br />
+			<input type="text" name="description" /><br />
+			<label>Tags (comma seperated)</label><br />
+			<input type="text" name="tags" /><br />
+			<input type="submit" />
+		</form>
+	</div>

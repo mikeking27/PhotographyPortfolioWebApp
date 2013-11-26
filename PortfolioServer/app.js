@@ -28,6 +28,11 @@ app.get('/', function(req, res){
 	events.emit('servePage', res);
 });
 
+app.get('/Manage', function(req, res){
+	res.Manage = true;
+	events.emit('servePage', res);
+});
+
 app.post('/UploadPhoto', function(req, res, next){
 	// the uploaded file can be found as `req.files.image` and the
 	// title field as `req.body.title`
@@ -58,19 +63,27 @@ app.post('/UploadPhoto', function(req, res, next){
 			fs.createReadStream(image.path)
 			.pipe(fs.createWriteStream(photoPath +'/'+ name));
 
-			events.emit('storePhoto', photo);
+			events.emit('storePhoto', photo, res);
 		}
 	}
-	events.emit('servePage', res); 
+	//events.emit('redirect', res, '/Manage');
+	//events.emit('servePage', res); 
 });
 
 app.post('/UpdatePhoto', function(req, res, next){
 	events.emit('updatePhoto', req.body, res, 'servePage');
+	events.emit('redirect', res, '/Manage');
 });
 
 app.post('/DeletePhoto', function(req, res, next){
 	events.emit('deletePhoto', req.body, res, 'servePage');
+	events.emit('redirect', res, '/Manage');
 });
+
+var loadFile = function(path){
+	return fs.readFileSync(path)
+	         .toString();
+}
 
 // serve up the content
 var serveImage = function(res, filename){
@@ -78,43 +91,42 @@ var serveImage = function(res, filename){
 }
 
 var serveLanding = function(res){
-	// TODO, retrieve data from db
 	events.emit('getAllPhotos', {}, res, 'assembleAndTransmit');
 };
 
 var assembleAndTransmit = function(photos, res){
-	var photoFrame = fs
-		.readFileSync(__dirname + '/public/frame.html')
-		.toString();
-	var page = fs
-		.readFileSync(__dirname + '/public/index.html')
-		.toString();
+	var photoFrame = loadFile(__dirname + '/public/frame.html');
+	var page = loadFile(__dirname + '/public/index.html')
+	var upload = loadFile(__dirname + '/public/upload.html');
+	var update = loadFile(__dirname + '/public/update.html');
 
 	console.log('photos: ' + photos.length);
 	for(var i = photos.length; i--;){
 		var photo = photos[i];
-		photo.markup = photoFrame
-			.replace('{{img-src}}', photo.src)
-			.replace('{{img-style}}', 'width:'+photo.width+'px;height'+photo.height+'px')
-			.replace('{{img-desc}}', photo.description);	
+		photo.markup = (res.Manage ? update : photoFrame)
+			.replace(/{{img-src}}/g, photo.src)
+			.replace(/{{img-style}}/g, 'width:'+photo.width+'px;height'+photo.height+'px')
+			.replace(/{{img-desc}}/g, photo.description)
+			.replace(/{{img-tags}}/g, photo.tags || '');
 	}
 
-	var photoMarkup = '';
+	var photoMarkup = res.Manage ? upload : '';
 	for(var i = photos.length; i--; photoMarkup += photos[i].markup);
 	var markup = '', lines = page.split('\n');
 	for(var i = 0; i < lines.length; i++)
-		markup += lines[i].replace('{{photos}}', photoMarkup) + '\n';
+		markup += lines[i].replace(/{{photos}}/g, photoMarkup) + '\n';
 
 	res.setHeader('Content-Type', 'text/html');
 	res.setHeader('Content-Length', markup.length);
 	res.send(markup);
 };
 
-var storeData = function(data){
+var storeData = function(data, res){
 	// TODO push into database
 	console.log('Storing data... ' + JSON.stringify(data));
 	db.collection('image_info').save(data, {safe:true}, function(err, data){
 		console.log('Saved!');
+		events.emit('redirect', res, '/Manage');
 	});
 };
 
@@ -138,6 +150,7 @@ var getPhoto = function(query, res, cbEvent){
 };
 
 var updatePhoto = function(data, res, cbEvent){
+	console.log('Updating image: ', JSON.stringify(data));
 	db.collection('image_info').update(
 		{src:data.src}, 
 		{$set: data},
@@ -157,6 +170,7 @@ var deletePhoto = function(data, res, cbEvent){
 		
 };
 
+events.on('redirect', function(res, path){res.redirect(path);});
 events.on('servePage', serveLanding);
 events.on('assembleAndTransmit', assembleAndTransmit);
 events.on('storePhoto', storeData);

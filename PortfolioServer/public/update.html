@@ -1,0 +1,14 @@
+	<div class="item wide" style="background-image:url({{img-src}})">
+		<form method="post" action="/UpdatePhoto" enctype="multipart/form-data">
+			<input type="hidden" name="src" value="{{img-src}}"/>
+			<label>Description</label><br />
+			<input type="text" name="description" value="{{img-desc}}"/><br />
+			<label>Tags (comma seperated)</label><br />
+			<input type="text" name="tags" value="{{img-tags}}"/><br />
+			<input type="submit" />
+		</form>
+		<form method="post" action="/DeletePhoto" enctype="multipart/form-data">
+			<input type="hidden" name="src" value="{{img-src}}"/>
+			<input type="submit" value="Delete"/>
+		</form>
+	</div>
