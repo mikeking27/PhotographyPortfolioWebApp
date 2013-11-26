@@ -65,18 +65,6 @@ Delete
 
     <script type="text/javascript" async data-pin-hover="true" src="//assets.pinterest.com/js/pinit.js"></script>
     <!-- End of social icons scripts --> 
-
-	<form method="post" action="/UploadPhoto" enctype="multipart/form-data">
-            <input type="file" name="image" /><br />
-            <label>Description</label><br />
-            <input type="text" name="description" /><br />
-            <label>Width</label><br />
-            <input type="text" name="width" /><br />
-            <label>Height</label><br />
-            <input type="text" name="height" /><br />
-            <input type="submit" />
-        </form>
-
     <header>
         <nav>
             <a href="#">year</a>
@@ -106,6 +94,18 @@ Delete
         <img src="static/images/DSCF3157.jpg" alt="" class="item high" />
         <img src="static/images/DSCF0575.jpg" alt="" class="item wide" />
         <img src="static/images/DSCF3233.jpg" alt="" class="item wide" />-->
+        <div class="item wide">
+            <form method="post" action="/UploadPhoto" enctype="multipart/form-data">
+                    <input type="file" name="image" /><br />
+                    <label>Description</label><br />
+                    <input type="text" name="description" /><br />
+                    <label>Width</label><br />
+                    <input type="text" name="width" /><br />
+                    <label>Height</label><br />
+                    <input type="text" name="height" /><br />
+                    <input type="submit" />
+                </form>
+        </div>
 	{{photos}}
     </section>
     <footer>
