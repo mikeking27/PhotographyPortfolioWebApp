@@ -132,7 +132,8 @@ Delete
         var container = document.querySelector('#container');
         var pckry = new Packery(container, {
             // options
-            itemSelector: '.item'
+            itemSelector: '.item',
+            gutter: 15
         });
         eventie.bind(container, 'click', function (event) {
             // don't proceed if item wideas not clicked on
