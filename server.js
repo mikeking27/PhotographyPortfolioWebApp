@@ -182,7 +182,7 @@ events.on('storePhoto', storeData);
 events.on('updatePhoto', updatePhoto);
 events.on('getAllPhotos', getPhoto);
 events.on('deletePhoto', deletePhoto);
-
-app.listen(3000);
+var port = process.env.port || 3000;
+app.listen(port);
 
 });
