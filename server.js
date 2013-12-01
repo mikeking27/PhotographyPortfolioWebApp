@@ -6,14 +6,15 @@ var fs      = require('fs');
 var app    = express();
 var events = new emitter();
 
-var statPath  = __dirname + '/public/static';
-var photoPath = __dirname + '/public/photos';
+var statPath      = __dirname + '/public/static';
+var photoPath     = '/public/photos/';
+var photoFullPath = __dirname + photoPath;
 var mongoUrl  = 'mongodb://photos:Password01@ds031088.mongolab.com:31088/photoportfoliodb';
 
 app.use(express.bodyParser());
 app.configure(function(){
 	app.use(express.static(statPath));
-	app.use(express.static(photoPath));
+	app.use(express.static(photoFullPath));
 });
 
 mongo.connect(mongoUrl, function(err, db){
@@ -43,7 +44,7 @@ app.post('/UploadPhoto', function(req, res, next){
 
 	for(var k in req.files){
 		var image = req.files[k];
-		var name = (image.path.split('/')).pop();
+		var name = (image.path.split(/\/|\\/)).pop();
 
 		// cool, we got the temp name
 		console.log('NAME: ', image.name.length);
@@ -59,9 +60,13 @@ app.post('/UploadPhoto', function(req, res, next){
 			photo.src  = name; // retain the location
 			photo.name = image.name.split('.')[0] || '';
 
+			console.log('Image path: ', image.path);
+			console.log('Photo name:', photo.name + '.' + image.name.split('.').pop());
+			console.log('File path: ', photoFullPath);
+
 			// copy the file
 			fs.createReadStream(image.path)
-			.pipe(fs.createWriteStream(photoPath +'/'+ name));
+			.pipe(fs.createWriteStream('.' + photoPath + name));
 
 			events.emit('storePhoto', photo, res);
 		}
@@ -71,12 +76,12 @@ app.post('/UploadPhoto', function(req, res, next){
 });
 
 app.post('/UpdatePhoto', function(req, res, next){
-	events.emit('updatePhoto', req.body, res, 'servePage');
+	events.emit('updatePhoto', req.body, res, null);
 	events.emit('redirect', res, '/Manage');
 });
 
 app.post('/DeletePhoto', function(req, res, next){
-	events.emit('deletePhoto', req.body, res, 'servePage');
+	events.emit('deletePhoto', req.body, res, null);
 	events.emit('redirect', res, '/Manage');
 });
 
@@ -140,7 +145,7 @@ var getPhoto = function(query, res, cbEvent){
 		}
 		if(!doc){
 			console.log('Emitting ' + cbEvent);
-			events.emit(cbEvent, photos, res);
+			if(cbEvent) events.emit(cbEvent, photos, res);
 			return;
 		}
 		console.log('Result: ' + JSON.stringify(doc));
@@ -155,7 +160,7 @@ var updatePhoto = function(data, res, cbEvent){
 		{src:data.src}, 
 		{$set: data},
 		function(){
-			events.emit(cbEvent, res);
+			if(cbEvent) events.emit(cbEvent, res);
 		}
 	);
 };
@@ -164,7 +169,7 @@ var deletePhoto = function(data, res, cbEvent){
 	db.collection('image_info').remove(
 		data,
 		function(){
-			events.emit(cbEvent, res);
+			if(cbEvent) events.emit(cbEvent, res);
 		}
 	);
 		
@@ -178,7 +183,6 @@ events.on('updatePhoto', updatePhoto);
 events.on('getAllPhotos', getPhoto);
 events.on('deletePhoto', deletePhoto);
 
-var port = process.env.port || 3000;
-app.listen(port);
+app.listen(3000);
 
 });
