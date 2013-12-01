@@ -377,7 +377,7 @@ div.param {
   clear: both;
 }
 .itemWrapper {
-  position: relative;
+  width: 250px;
 }
 .itemWrapper .item {
   float: left;
@@ -396,6 +396,11 @@ div.param {
 
   -webkit-box-shadow: 3px 3px 3px #333333;
   box-shadow: 3px 3px 3px #333333;
+  cursor: pointer;
+  /*&.wide {
+            height: 198px;
+        }*/
+
 }
 .itemWrapper .item:hover {
   filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'old-timey\'><feColorMatrix type=\'matrix\' values=\'0.14 0.45 0.05 0 0 0.12 0.39 0.04 0 0 0.08 0.28 0.03 0 0 0 0 0 1 0\'/></filter></svg>#old-timey");
@@ -406,24 +411,27 @@ div.param {
   -o-filter: sepia(100%);
   filter: sepia(100%);
 }
-.itemWrapper .item.wide {
-  height: 198px;
-}
 .itemWrapper .item.gigante {
   background: #fa9a5a;
   clip: auto;
   z-index: 10;
   /* keep it above other items */
 
-  width: 48%;
+  width: 48.2%;
   height: auto;
   padding: 10px;
   filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 1 0\'/></filter></svg>#grayscale");
   -webkit-filter: grayscale(0%);
 }
 .itemWrapper p {
-  position: absolute;
+  position: relative;
   bottom: 0;
+  width: 250px;
+  height: 100%;
+  z-index: 5;
+  margin: 0;
+  padding: 2em;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 .packery .item.w2 {
   width: 50%;
@@ -456,18 +464,14 @@ div.param {
 /* ---- Social Links ---- */
 .socialLinks {
   float: right;
+  clear: right;
+  margin: 1em 2em;
 }
-.socialLinks:before,
-.socialLinks:after {
-  content: " ";
-  /* 1 */
-
-  display: table;
-  /* 2 */
-
+.socialLinks a {
+  margin-left: 1em;
 }
-.socialLinks:after {
-  clear: both;
+.socialLinks #twitter-widget-0 {
+  margin-left: 1em;
 }
 /* ---- site nav ---- */
 header:before,
