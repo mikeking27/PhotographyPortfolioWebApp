@@ -47,7 +47,6 @@ Delete
 
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
-
 </head>
 <body>
     <!-- Social Icon scripts -->
@@ -64,7 +63,7 @@ Delete
     </script>
 
     <script type="text/javascript" async data-pin-hover="true" src="//assets.pinterest.com/js/pinit.js"></script>
-    <!-- End of social icons scripts --> 
+    <!-- End of social icons scripts -->
     <header>
         <nav>
             <a href="#">year</a>
@@ -76,25 +75,56 @@ Delete
             M Dawson Photography
         </div>
     </header>
-    
+
     <section id="container" class="packery" data-packery-options='{ "itemSelector": ".item", "gutter": 10 }'>
         <div class="grid-sizer"></div>
-        <!--<img src="static/images/DSCF0155.jpg" alt="" class="item wide" />
-        <img src="static/images/DSCF0464.jpg" alt="" class="item wide" />
-        <img src="static/images/DSCF2861.jpg" alt="" class="item wide" />
-        <img src="static/images/Buckles_Harris Lake 06.05.27 021.jpg" alt="" class="item wide" />
-        <img src="static/images/DSCF0273.jpg" alt="" class="item wide" />
-        <img src="static/images/DSCF3295.jpg" alt="" class="item wide" />
-        <img src="static/images/DSCF3424.jpg" alt="" class="item wide" />
-        <img src="static/images/DSCF3829.jpg" alt="" class="item wide" />
-        <img src="static/images/DSCF5163.jpg" alt="" class="item wide" />
-        <img src="static/images/DSCF5309.jpg" alt="" class="item wide" />
-        <img src="static/images/DSCF7325.jpg" alt="" class="item wide" />
-        <img src="static/images/DSCF8037.jpg" alt="" class="item wide" />
-        <img src="static/images/DSCF3157.jpg" alt="" class="item high" />
-        <img src="static/images/DSCF0575.jpg" alt="" class="item wide" />
-        <img src="static/images/DSCF3233.jpg" alt="" class="item wide" />-->
-	{{photos}}
+        <div class="itemWrapper">
+            <img src="DSCF0155.jpg" alt="" class="item wide" />
+            <p>This is the description</p>
+        </div>
+        <div class="itemWrapper">
+            <img src="DSCF0464.jpg" alt="" class="item wide" />
+        </div>
+        <div class="itemWrapper">
+            <img src="DSCF2861.jpg" alt="" class="item wide" />
+        </div>
+        <div class="itemWrapper">
+            <img src="Buckles_Harris Lake 06.05.27 021.jpg" alt="" class="item wide" />
+        </div>
+        <div class="itemWrapper">
+            <img src="DSCF0273.jpg" alt="" class="item wide" />
+        </div>
+        <div class="itemWrapper">
+            <img src="DSCF3295.jpg" alt="" class="item wide" />
+        </div>
+        <div class="itemWrapper">
+            <img src="DSCF3424.jpg" alt="" class="item wide" />
+        </div>
+        <div class="itemWrapper">
+            <img src="DSCF3829.jpg" alt="" class="item wide" />
+        </div>
+        <div class="itemWrapper">
+            <img src="DSCF5163.jpg" alt="" class="item wide" />
+        </div>
+        <div class="itemWrapper">
+            <img src="DSCF5309.jpg" alt="" class="item wide" />
+        </div>
+        <div class="itemWrapper">
+            <img src="DSCF7325.jpg" alt="" class="item wide" />
+        </div>
+        <div class="itemWrapper">
+            <img src="DSCF8037.jpg" alt="" class="item wide" />
+        </div>
+        <div class="itemWrapper">
+            <img src="DSCF3157.jpg" alt="" class="item high" />
+        </div>
+        <div class="itemWrapper">
+            <img src="DSCF0575.jpg" alt="" class="item wide" />
+        </div>
+        <div class="itemWrapper">
+            <img src="DSCF3233.jpg" alt="" class="item wide" />
+        </div>
+        <!--{{photos}}-->
     </section>
     <footer>
         <div class="socialLinks">
@@ -132,7 +162,7 @@ Delete
         var container = document.querySelector('#container');
         var pckry = new Packery(container, {
             // options
-            itemSelector: '.item',
+            itemSelector: '.itemWrapper',
             gutter: 15
         });
         eventie.bind(container, 'click', function (event) {
