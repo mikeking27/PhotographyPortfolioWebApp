@@ -1,39 +1,3 @@
-<!-- <html>
-	<head></head>
-	<body>
-		{{photos}}
-Upload
-		<form method="post" action="/UploadPhoto" enctype="multipart/form-data">
-			<input type="file" name="image"/><br/>
-			<label>Description</label><br/>
-			<input type="text" name="description"/><br/>
-			<label>Width</label><br/>
-			<input type="text" name="width"/><br/>
-			<label>Height</label><br/>
-			<input type="text" name="height"/><br/>
-			<input type="submit"/>		
-		</form>
-<div style="border:1px solid black;width:100%"></div>
-Update
-                <form method="post" action="/UpdatePhoto" enctype="multipart/form-data">
-			<label>File</label><br/>
-                        <input type="text" name="src"/><br/>
-                        <label>Description</label><br/>
-                        <input type="text" name="description"/><br/>
-                        <label>Width</label><br/>
-                        <input type="text" name="width"/><br/>
-                        <label>Height</label><br/>
-                        <input type="text" name="height"/><br/>
-                        <input type="submit"/>          
-                </form>
-<div style="border:1px solid black;width:100%"></div>
-Delete
-                <form method="post" action="/DeletePhoto" enctype="multipart/form-data">
-			<label>File</label><br/>
-                        <input type="text" name="src"/><br/>
-                        <input type="submit"/>          
-                </form>
-	</body>-->
 <!DOCTYPE html>
 <html class="no-js">
 <head>
@@ -94,7 +58,7 @@ Delete
 
     <section id="container" class="packery" data-packery-options='{ "itemSelector": ".item", "gutter": 10 }'>
         <div class="grid-sizer"></div>
-        <div class="itemWrapper">
+        <!--<div class="itemWrapper">
             <img src="DSCF0155.jpg" alt="" class="item wide" />
             <p>This is the description 1</p>
         </div>
@@ -153,8 +117,8 @@ Delete
         <div class="itemWrapper">
             <img src="DSCF3233.jpg" alt="" class="item wide" />
             <p>This is the description</p>
-        </div>
-        <!--{{photos}}-->
+        </div>-->
+        {{photos}}
     </section>
     <footer>
         <div class="copyright">M Dawson Photography Copyright &copy;2013</div>
