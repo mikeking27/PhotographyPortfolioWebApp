@@ -73,15 +73,16 @@ Delete
     </script>
     <!-- End of social icons scripts -->
     <header>
+        
+        <div class="logo">
+            <img src="logo.jpg" alt="M Dawson Photography" />
+        </div>
         <nav>
             <a href="#">year</a>
             <a href="#">album</a>
             <a href="#">subjects</a>
             <a href="#">about</a>
         </nav>
-        <div class="logo">
-            M Dawson Photography
-        </div>
         <div class="socialLinks">
             <a href="//www.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark">
                 <img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png" /></a>
@@ -93,53 +94,67 @@ Delete
 
     <section id="container" class="packery" data-packery-options='{ "itemSelector": ".item", "gutter": 10 }'>
         <div class="grid-sizer"></div>
-        <!--<div class="itemWrapper">
+        <div class="itemWrapper">
             <img src="DSCF0155.jpg" alt="" class="item wide" />
-            <p>This is the description</p>
+            <p>This is the description 1</p>
         </div>
         <div class="itemWrapper">
             <img src="DSCF0464.jpg" alt="" class="item wide" />
+            <p>This is the description 2</p>
         </div>
         <div class="itemWrapper">
             <img src="DSCF2861.jpg" alt="" class="item wide" />
+            <p>This is the description 3</p>
         </div>
         <div class="itemWrapper">
             <img src="Buckles_Harris Lake 06.05.27 021.jpg" alt="" class="item wide" />
+            <p>This is the description 4</p>
         </div>
         <div class="itemWrapper">
             <img src="DSCF0273.jpg" alt="" class="item wide" />
+            <p>This is the description 5</p>
         </div>
         <div class="itemWrapper">
             <img src="DSCF3295.jpg" alt="" class="item wide" />
+            <p>This is the description 6</p>
         </div>
         <div class="itemWrapper">
             <img src="DSCF3424.jpg" alt="" class="item wide" />
+            <p>This is the description 7</p>
         </div>
         <div class="itemWrapper">
             <img src="DSCF3829.jpg" alt="" class="item wide" />
+            <p>This is the description 8</p>
         </div>
         <div class="itemWrapper">
             <img src="DSCF5163.jpg" alt="" class="item wide" />
+            <p>This is the description</p>
         </div>
         <div class="itemWrapper">
             <img src="DSCF5309.jpg" alt="" class="item wide" />
+            <p>This is the description</p>
         </div>
         <div class="itemWrapper">
             <img src="DSCF7325.jpg" alt="" class="item wide" />
+            <p>This is the description</p>
         </div>
         <div class="itemWrapper">
             <img src="DSCF8037.jpg" alt="" class="item wide" />
+            <p>This is the description</p>
         </div>
         <div class="itemWrapper">
             <img src="DSCF3157.jpg" alt="" class="item high" />
+            <p>This is the description</p>
         </div>
         <div class="itemWrapper">
             <img src="DSCF0575.jpg" alt="" class="item wide" />
+            <p>This is the description</p>
         </div>
         <div class="itemWrapper">
             <img src="DSCF3233.jpg" alt="" class="item wide" />
-        </div>-->
-        {{photos}}
+            <p>This is the description</p>
+        </div>
+        <!--{{photos}}-->
     </section>
     <footer>
         <div class="copyright">M Dawson Photography Copyright &copy;2013</div>
@@ -167,13 +182,18 @@ Delete
     <script src="bower_components/packery/js/item.js"></script>
     <script src="bower_components/packery/js/packer.js"></script>
     <script src="bower_components/packery/js/packery.js"></script>
+    <script src="bower_components/imagesloaded/imagesloaded.js"></script>
 
     <script>
         var container = document.querySelector('#container');
-        var pckry = new Packery(container, {
-            // options
-            itemSelector: '.item',
-            gutter: 15
+        var pckry;
+        // initialize Packery after all images have loaded
+        imagesLoaded(container, function () {
+            pckry = new Packery(container, {
+                // options
+                itemSelector: '.item',
+                gutter: 15
+            });
         });
         eventie.bind(container, 'click', function (event) {
             // don't proceed if item wideas not clicked on
