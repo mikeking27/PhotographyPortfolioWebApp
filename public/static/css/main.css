@@ -843,13 +843,18 @@ you can use the generic selector below, but it's slower:
   content: "\e000";
 }
 
-.update-form{
+.upload-form, .update-form{
   width: 300px;
   height: 300px;
   padding: 5px;
   color: #eee;
   background-repeat: no-repeat;
   background-size: contain;
+}
+
+.upload-form{
+  background-color: #2184ff;
+  color: #fff;
 }
 
 input[type=text], input[type=submit]{
