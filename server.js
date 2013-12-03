@@ -111,6 +111,7 @@ var assembleAndTransmit = function(photos, res){
 		photo.markup = (res.Manage ? update : photoFrame)
 			.replace(/{{img-src}}/g, photo.src)
 			.replace(/{{img-style}}/g, 'width:'+photo.width+'px;height'+photo.height+'px')
+			.replace(/{{img-name}}/g, photo.name)
 			.replace(/{{img-desc}}/g, photo.description)
 			.replace(/{{img-tags}}/g, photo.tags || '');
 	}
