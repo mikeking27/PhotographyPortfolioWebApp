@@ -873,3 +873,12 @@ input[type=submit]{
 input[type=submit]:hover{
   color: #eee;
 }
+
+#about{
+    padding: 5px 5px 5px 5px;
+    margin-top: 5px;
+    font-size: 14px;
+    border: solid 1px;
+    border-radius: 5px;
+    background-color: rgba(224, 224, 224, 0.5);
+}
