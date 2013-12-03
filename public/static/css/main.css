@@ -842,3 +842,8 @@ you can use the generic selector below, but it's slower:
 .icon-github:before {
   content: "\e000";
 }
+
+.update-form{
+  background-repeat: no-repeat;
+  background-size: contain;
+}
