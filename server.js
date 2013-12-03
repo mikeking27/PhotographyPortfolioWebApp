@@ -33,7 +33,7 @@ app.get('/Manage', function(req, res){
 	res.Manage = true;
 	events.emit('servePage', res);
 });
-//-----------------------------------------------------------------------------
+
 app.post('/UploadPhoto', function(req, res, next){
 	// the uploaded file can be found as `req.files.image` and the
 	// title field as `req.body.title`
@@ -74,37 +74,36 @@ app.post('/UploadPhoto', function(req, res, next){
 	//events.emit('redirect', res, '/Manage');
 	//events.emit('servePage', res); 
 });
-//-----------------------------------------------------------------------------
+
 app.post('/UpdatePhoto', function(req, res, next){
 	events.emit('updatePhoto', req.body, res, null);
 	events.emit('redirect', res, '/Manage');
 });
-//-----------------------------------------------------------------------------
+
 app.post('/DeletePhoto', function(req, res, next){
 	events.emit('deletePhoto', req.body, res, null);
 	events.emit('redirect', res, '/Manage');
 });
-//-----------------------------------------------------------------------------
+
 var loadFile = function(path){
 	return fs.readFileSync(path)
 	         .toString();
 }
-//-----------------------------------------------------------------------------
+
 // serve up the content
 var serveImage = function(res, filename){
 	console.log('serving image');
 }
-//-----------------------------------------------------------------------------
+
 var serveLanding = function(res){
 	events.emit('getAllPhotos', {}, res, 'assembleAndTransmit');
 };
-//-----------------------------------------------------------------------------
+
 var assembleAndTransmit = function(photos, res){
 	var photoFrame = loadFile(__dirname + '/public/frame.html');
-	var page     = loadFile(__dirname + '/public/index.html')
-	var upload   = loadFile(__dirname + '/public/upload.html');
-	var update   = loadFile(__dirname + '/public/update.html');
-	var category = loadFile(__dirname + '/public/category.html');
+	var page = loadFile(__dirname + '/public/index.html')
+	var upload = loadFile(__dirname + '/public/upload.html');
+	var update = loadFile(__dirname + '/public/update.html');
 
 	console.log('photos: ' + photos.length);
 	for(var i = photos.length; i--;){
@@ -113,24 +112,10 @@ var assembleAndTransmit = function(photos, res){
 			.replace(/{{img-src}}/g, photo.src)
 			.replace(/{{img-style}}/g, 'width:'+photo.width+'px;height'+photo.height+'px')
 			.replace(/{{img-desc}}/g, photo.description)
-			.replace(/{{img-tags}}/g, photo.tags || '')
-			.replace(/{{img-name}}/g, photo.name || '');
+			.replace(/{{img-tags}}/g, photo.tags || '');
 	}
 
 	var photoMarkup = res.Manage ? upload : '';
-	for(var k in photos.Tags){
-		var group = photos.Tags[k];
-		var groupMarkup = '';
-
-		for(var i = group.length; i--;){
-			groupMarkup += group[i].markup;
-		}
-
-		photoMarkup += category
-			.replace(/{{category}}/g, k)
-			.replace(/{{photos}}/g, groupMarkup);
-	}
-	
 	for(var i = photos.length; i--; photoMarkup += photos[i].markup);
 	var markup = '', lines = page.split('\n');
 	for(var i = 0; i < lines.length; i++)
@@ -140,7 +125,7 @@ var assembleAndTransmit = function(photos, res){
 	res.setHeader('Content-Length', markup.length);
 	res.send(markup);
 };
-//-----------------------------------------------------------------------------
+
 var storeData = function(data, res){
 	// TODO push into database
 	console.log('Storing data... ' + JSON.stringify(data));
@@ -149,12 +134,10 @@ var storeData = function(data, res){
 		events.emit('redirect', res, '/Manage');
 	});
 };
-//-----------------------------------------------------------------------------
+
 var getPhoto = function(query, res, cbEvent){
 	var cursor = db.collection('image_info').find(query);
 	var photos = [];
-	photos.Tags = {};
-
 	cursor.each(function(err,doc){
 		if(err){
 			console.log('Error: ' + err);
@@ -167,21 +150,10 @@ var getPhoto = function(query, res, cbEvent){
 		}
 		console.log('Result: ' + JSON.stringify(doc));
 		doc.markup = '';
-		
-		// create tag categories
-		var tags = doc.tags.split(',')
-		for(var k in tags){
-			k = tags[k].trim();
-			if(!photos.Tags[k])
-				photos.Tags[k] = [];
-
-			photos.Tags[k].push(doc);
-		}
-
 		photos.push(doc);
 	});
 };
-//-----------------------------------------------------------------------------
+
 var updatePhoto = function(data, res, cbEvent){
 	console.log('Updating image: ', JSON.stringify(data));
 	db.collection('image_info').update(
@@ -192,7 +164,7 @@ var updatePhoto = function(data, res, cbEvent){
 		}
 	);
 };
-//-----------------------------------------------------------------------------
+
 var deletePhoto = function(data, res, cbEvent){
 	db.collection('image_info').remove(
 		data,
@@ -202,7 +174,7 @@ var deletePhoto = function(data, res, cbEvent){
 	);
 		
 };
-//-----------------------------------------------------------------------------
+
 events.on('redirect', function(res, path){res.redirect(path);});
 events.on('servePage', serveLanding);
 events.on('assembleAndTransmit', assembleAndTransmit);
