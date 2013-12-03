@@ -56,70 +56,8 @@
         </div>
     </header>
 
-    <section id="container" class="packery" data-packery-options='{ "itemSelector": ".item", "gutter": 10 }'>
-        <div class="grid-sizer"></div>
-        <!--<div class="itemWrapper">
-            <img src="DSCF0155.jpg" alt="" class="item wide" />
-            <p>This is the description 1</p>
-        </div>
-        <div class="itemWrapper">
-            <img src="DSCF0464.jpg" alt="" class="item wide" />
-            <p>This is the description 2</p>
-        </div>
-        <div class="itemWrapper">
-            <img src="DSCF2861.jpg" alt="" class="item wide" />
-            <p>This is the description 3</p>
-        </div>
-        <div class="itemWrapper">
-            <img src="Buckles_Harris Lake 06.05.27 021.jpg" alt="" class="item wide" />
-            <p>This is the description 4</p>
-        </div>
-        <div class="itemWrapper">
-            <img src="DSCF0273.jpg" alt="" class="item wide" />
-            <p>This is the description 5</p>
-        </div>
-        <div class="itemWrapper">
-            <img src="DSCF3295.jpg" alt="" class="item wide" />
-            <p>This is the description 6</p>
-        </div>
-        <div class="itemWrapper">
-            <img src="DSCF3424.jpg" alt="" class="item wide" />
-            <p>This is the description 7</p>
-        </div>
-        <div class="itemWrapper">
-            <img src="DSCF3829.jpg" alt="" class="item wide" />
-            <p>This is the description 8</p>
-        </div>
-        <div class="itemWrapper">
-            <img src="DSCF5163.jpg" alt="" class="item wide" />
-            <p>This is the description</p>
-        </div>
-        <div class="itemWrapper">
-            <img src="DSCF5309.jpg" alt="" class="item wide" />
-            <p>This is the description</p>
-        </div>
-        <div class="itemWrapper">
-            <img src="DSCF7325.jpg" alt="" class="item wide" />
-            <p>This is the description</p>
-        </div>
-        <div class="itemWrapper">
-            <img src="DSCF8037.jpg" alt="" class="item wide" />
-            <p>This is the description</p>
-        </div>
-        <div class="itemWrapper">
-            <img src="DSCF3157.jpg" alt="" class="item high" />
-            <p>This is the description</p>
-        </div>
-        <div class="itemWrapper">
-            <img src="DSCF0575.jpg" alt="" class="item wide" />
-            <p>This is the description</p>
-        </div>
-        <div class="itemWrapper">
-            <img src="DSCF3233.jpg" alt="" class="item wide" />
-            <p>This is the description</p>
-        </div>-->
-        {{photos}}
-    </section>
+    {{photos}}
+
     <footer>
         <div class="copyright">M Dawson Photography Copyright &copy;2013</div>
     </footer>
@@ -149,7 +87,7 @@
     <script src="bower_components/imagesloaded/imagesloaded.js"></script>
 
     <script>
-        var container = document.querySelector('#container');
+        var container = document.querySelector('.packery');
         var pckry;
         // initialize Packery after all images have loaded
         imagesLoaded(container, function () {
